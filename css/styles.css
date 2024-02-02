@@ -3227,15 +3227,16 @@ td:last-child {
 
 .s-header__logo a {
 	display: block;
-	margin : 0;
+	margin : -10%;
 	padding: 0;
 	outline: 0;
 	border : none;
 }
 
 .s-header__logo img {
-	width         : var(--logo-width);
-	margin        : 0;
+	width         : 12rem;
+	margin-left   : 15%;
+	margin-top: 35%;
 	vertical-align: bottom;
 }
 
@@ -3631,7 +3632,7 @@ td:last-child {
 }
 
 .s-intro__content-title {
-	font-size    : clamp(5rem, 7vw, 11.6rem);
+	font-size    : clamp(3rem, 5vw, 6rem);
 	line-height  : 1;
 	margin-top   : 0;
 	margin-bottom: var(--vspace-1_25);
