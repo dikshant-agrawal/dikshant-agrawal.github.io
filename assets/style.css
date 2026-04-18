@@ -1197,7 +1197,7 @@ footer .accent { color: var(--neon); }
 /* ------- Responsive ------- */
 @media (max-width: 860px) {
   .hero-grid, .two-col, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .hero-visual { order: -1; min-height: 320px; }
+  .hero-visual {min-height: 320px; }
   .right-col { width: 100%; align-self: auto; }
   .hw-monitor, .hw-serial { font-size: .68rem; }
   .hw-serial { min-height: 160px; }
