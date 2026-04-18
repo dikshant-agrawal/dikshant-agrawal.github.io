@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dikshant Agrawal — Embedded Systems Engineer</title>
+  <meta name="description" content="Portfolio of Dikshant Agrawal — Embedded Systems Engineer exploring AI, functional safety, and real-time processing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2304060f'/%3E%3Cpath d='M6 8 h4 v16 h-4 z M12 8 h16 v4 h-6 v4 h4 v4 h-4 v4 h6 v4 h-16 z' fill='%2300e5ff'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<canvas id="grid-floor"></canvas>
+<canvas id="circuit-bg"></canvas>
+
+<!-- ======== NAVBAR ======== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="dot"></span> dikshant.sys
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links">
+      <li><a href="index.html">home</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="experience.html">experience</a></li>
+      <li><a href="contact.html">contact</a></li>
+      <li><span id="live-clock" class="live-clock">DA/--:--:-- CET</span></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ======== HERO ======== -->
+<header class="hero container">
+  <div class="side-hex left"></div>
+  <div class="side-hex right"></div>
+
+  <div class="hero-grid">
+    <div>
+      <p class="hero-pre">// boot ./portfolio.elf — v2.6</p>
+      <h1>
+        Hi, I'm <span class="accent">Dikshant</span>.<br/>
+        <span class="gradient">Embedded Systems Engineer.</span>
+      </h1>
+      <p class="hero-sub">
+        I design firmware and hardware at the edge — where silicon meets intelligence.
+        M.Sc. <strong>Embedded Systems &amp; Microelectronics</strong> at
+        Hochschule Darmstadt · specializing in 32-bit ARM Cortex, real-time OS, and edge-AI.
+      </p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <span></span><span></span><span></span>
+          <span class="title">~/dikshant $ zsh</span>
+        </div>
+        <div id="typewriter"></div>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn primary" href="projects.html"><i class="fa-solid fa-microchip"></i> view projects</a>
+        <a class="btn" href="Dikshant_Agrawal_Biographie.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> download CV</a>
+        <a class="btn" href="contact.html"><i class="fa-solid fa-satellite-dish"></i> let's connect</a>
+      </div>
+
+      <div class="social-strip">
+        <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/agrawaldikshant/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:agrawaldikshant3001@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="tel:+4915510862798" aria-label="Phone" class="phone-btn" data-phone="+49 155 1086 2798"><i class="fa-solid fa-phone"></i></a>
+      </div>
+    </div>
+
+    <!-- HERO VISUAL: PCB + SYS MONITOR panel -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="pcb-visual-col">
+      <div class="pcb-board">
+        <div class="pcb-hole h1"></div>
+        <div class="pcb-hole h2"></div>
+        <div class="pcb-hole h3"></div>
+        <div class="pcb-hole h4"></div>
+
+        <div class="mcu">
+          <div class="mcu-side-l"></div>
+          <div class="mcu-side-r"></div>
+          <div class="mcu-dot"></div>
+          <div class="mcu-label">
+            <span class="part"></span>
+            ARM Cortex-M<br/>
+            <span class="arch">32-BIT</span>
+          </div>
+        </div>
+
+        <div class="pcb-comp top-l"><div class="body">R1<br/>10k</div></div>
+        <div class="pcb-comp top-r"><div class="body">C2<br/>100nF</div></div>
+        <div class="pcb-comp bot-l"><div class="body">Y1<br/>8 MHz</div></div>
+        <div class="pcb-comp bot-r"><div class="body">U2<br/>LDO</div></div>
+
+        <div class="pcb-led l1"></div>
+        <div class="pcb-led l2"></div>
+        <div class="pcb-led l3"></div>
+        <div class="pcb-led l4"></div>
+      </div>
+
+      <!-- HW PANEL: tabbed SYS.MONITOR + SERIAL + DATASHEET -->
+      <div class="hw-panel">
+
+        <!-- Tab bar -->
+        <div class="hw-tabs">
+          <button class="hw-tab active" data-tab="monitor">SYS.MON</button>
+          <button class="hw-tab" data-tab="serial">SERIAL</button>
+          <button class="hw-tab" data-tab="datasheet">DATASHEET</button>
+        </div>
+
+        <!-- ① SYS.MONITOR tab -->
+        <div class="hw-content active" id="tab-monitor">
+          <div class="sm-header">
+            <span>// SYS.MONITOR</span>
+            <span class="sm-live"><span class="sm-live-dot"></span> LIVE</span>
+          </div>
+          <div class="sm-row">
+            <span class="sm-dot sm-on"></span>
+            <span class="sm-name">RTOS</span>
+            <div class="sm-bar-wrap"><div class="sm-bar-fill" id="sm-cpu" style="width:72%"></div></div>
+            <span class="sm-val" id="sm-cpu-val">72%</span>
+          </div>
+          <div class="sm-row">
+            <span class="sm-dot sm-on"></span>
+            <span class="sm-name">FLASH</span>
+            <div class="sm-bar-wrap"><div class="sm-bar-fill" style="width:61%"></div></div>
+            <span class="sm-val">61%</span>
+          </div>
+          <div class="sm-row">
+            <span class="sm-dot sm-on"></span>
+            <span class="sm-name">SRAM</span>
+            <div class="sm-bar-wrap"><div class="sm-bar-fill" style="width:38%"></div></div>
+            <span class="sm-val">38%</span>
+          </div>
+          <div class="sm-row sm-row-proto">
+            <span class="sm-dot sm-pulse"></span>
+            <span class="sm-name">I²C</span>
+            <span class="sm-proto-val" id="sm-i2c">ACK → 0x48</span>
+            <span class="sm-val">400kHz</span>
+          </div>
+          <div class="sm-row sm-row-proto">
+            <span class="sm-dot sm-pulse"></span>
+            <span class="sm-name">CAN</span>
+            <span class="sm-proto-val" id="sm-can">TX: 0x2A1</span>
+            <span class="sm-val">1Mbps</span>
+          </div>
+          <div class="sm-row sm-row-proto">
+            <span class="sm-dot sm-pulse"></span>
+            <span class="sm-name">UART0</span>
+            <span class="sm-proto-val" id="sm-uart">TX ACTIVE</span>
+            <span class="sm-val">115200</span>
+          </div>
+          <div class="sm-row sm-row-proto">
+            <span class="sm-dot sm-on"></span>
+            <span class="sm-name">GPIO</span>
+            <span class="sm-proto-val" id="sm-gpio">12 HIGH · 4 LOW</span>
+            <span class="sm-val">3.3V</span>
+          </div>
+          <div class="sm-row sm-row-proto">
+            <span class="sm-dot sm-pulse"></span>
+            <span class="sm-name">ADC1</span>
+            <span class="sm-proto-val" id="sm-adc">0x0C4F</span>
+            <span class="sm-val" id="sm-adc-v">3.14V</span>
+          </div>
+          <div class="sm-row sm-wdt">
+            <span class="sm-dot sm-on"></span>
+            <span class="sm-name">WDT</span>
+            <div class="sm-bar-wrap"><div class="sm-bar-fill sm-bar-wdt" id="sm-wdt-bar" style="width:100%"></div></div>
+            <span class="sm-val" id="sm-wdt-val">4.0s</span>
+          </div>
+        </div>
+
+        <!-- ② SERIAL MONITOR tab -->
+        <div class="hw-content" id="tab-serial">
+          <div class="sm-header">
+            <span>// UART0 · 115200 8N1</span>
+            <span class="sm-live"><span class="sm-live-dot"></span> RX</span>
+          </div>
+          <div class="serial-output" id="serial-output"></div>
+          <div class="serial-prompt">
+            <span class="serial-ts">&gt;</span>
+            <span class="serial-cursor"></span>
+          </div>
+        </div>
+
+        <!-- ③ DATASHEET tab -->
+        <div class="hw-content" id="tab-datasheet">
+          <div class="ds-table">
+            <div class="ds-chip-name">STM32F407VGT6</div>
+            <div class="ds-chip-sub">ARM Cortex-M4F · LQFP-100</div>
+
+            <div class="ds-section">
+              <div class="ds-section-title">// CORE</div>
+              <div class="ds-row"><span class="ds-key">Architecture</span><span class="ds-val accent">ARM Cortex-M4F</span></div>
+              <div class="ds-row"><span class="ds-key">Max Speed</span><span class="ds-val">168 MHz</span></div>
+              <div class="ds-row"><span class="ds-key">FPU</span><span class="ds-val">Single-precision</span></div>
+              <div class="ds-row"><span class="ds-key">MPU</span><span class="ds-val">8 regions</span></div>
+            </div>
+
+            <div class="ds-section">
+              <div class="ds-section-title">// MEMORY</div>
+              <div class="ds-row"><span class="ds-key">Flash</span><span class="ds-val accent">1024 kB</span></div>
+              <div class="ds-row"><span class="ds-key">SRAM</span><span class="ds-val">192 kB</span></div>
+              <div class="ds-row"><span class="ds-key">CCM RAM</span><span class="ds-val">64 kB</span></div>
+              <div class="ds-row"><span class="ds-key">Backup SRAM</span><span class="ds-val">4 kB</span></div>
+            </div>
+
+            <div class="ds-section">
+              <div class="ds-section-title">// INTERFACES</div>
+              <div class="ds-row"><span class="ds-key">USART / UART</span><span class="ds-val">4 / 2</span></div>
+              <div class="ds-row"><span class="ds-key">SPI / I2S</span><span class="ds-val">3 / 2</span></div>
+              <div class="ds-row"><span class="ds-key">I2C</span><span class="ds-val">3</span></div>
+              <div class="ds-row"><span class="ds-key">CAN</span><span class="ds-val accent">2 × 1 Mbps</span></div>
+              <div class="ds-row"><span class="ds-key">USB OTG</span><span class="ds-val">FS + HS</span></div>
+              <div class="ds-row"><span class="ds-key">SDIO</span><span class="ds-val">1</span></div>
+            </div>
+
+            <div class="ds-section">
+              <div class="ds-section-title">// ANALOG</div>
+              <div class="ds-row"><span class="ds-key">ADC</span><span class="ds-val">3 × 12-bit · 2.4 Msps</span></div>
+              <div class="ds-row"><span class="ds-key">DAC</span><span class="ds-val">2 × 12-bit</span></div>
+              <div class="ds-row"><span class="ds-key">GPIO</span><span class="ds-val">140 I/O</span></div>
+              <div class="ds-row"><span class="ds-key">Timers</span><span class="ds-val">14 (2 × 32-bit)</span></div>
+            </div>
+
+            <div class="ds-section">
+              <div class="ds-section-title">// ELECTRICAL</div>
+              <div class="ds-row"><span class="ds-key">Supply</span><span class="ds-val">1.8 – 3.6 V</span></div>
+              <div class="ds-row"><span class="ds-key">Op. Temp</span><span class="ds-val">−40 to +85 °C</span></div>
+              <div class="ds-row"><span class="ds-key">Package</span><span class="ds-val accent">LQFP-100</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end hw-panel -->
+
+      </div><!-- end pcb-visual-col -->
+    </div>
+  </div>
+</header>
+
+<!-- ======== OSCILLOSCOPE STRIP ======== -->
+<section class="container" style="padding-top:0; padding-bottom:2rem;">
+  <div class="scope-strip reveal">
+    <div class="label">CH1 · SYS<br/><span class="muted">50 µs/div</span></div>
+    <svg data-wave="ekg" aria-hidden="true"></svg>
+    <div class="readout"><strong>pulse:</strong> 72 bpm<br/><span class="muted">vitals: ok</span></div>
+  </div>
+  <div class="stat-row reveal">
+    <div class="stat-tile"><span class="val">4+</span><span class="key">years.industry</span></div>
+    <div class="stat-tile"><span class="val">15+</span><span class="key">mcu.platforms</span></div>
+    <div class="stat-tile"><span class="val">6</span><span class="key">featured.projects</span></div>
+    <div class="stat-tile"><span class="val">M.Sc.</span><span class="key">current.degree</span></div>
+  </div>
+</section>
+
+<!-- ======== QUOTE (sys-log) ======== -->
+<section class="container" style="padding-top:0; padding-bottom:1rem;">
+  <div class="sys-log reveal">
+    <span class="sl-tag">// SYS_MSG</span>
+    <span class="sl-msg">"There is plenty of room at the bottom."</span>
+    <span class="sl-src">— Feynman, 1959</span>
+  </div>
+</section>
+
+<!-- ======== ABOUT ======== -->
+<section class="container" id="about">
+  <div class="section-title reveal"><span class="mono-label">01 / about</span><h2>About Me</h2></div>
+  <div class="two-col">
+    <div class="reveal">
+      <p style="margin-bottom:1rem;">
+        I'm an <span class="accent">Embedded Systems Engineer</span> with a strong academic
+        foundation and hands-on experience spanning firmware, PCB design, and real-time systems.
+        My work lives at the intersection of <strong>AI and embedded systems</strong> — focused on
+        functional safety, energy-efficient architectures, and deterministic processing.
+      </p>
+      <p style="margin-bottom:1rem;">
+        My path runs from designing <em>buck converters</em> for aerospace at Einfochips, to
+        building <em>life-saving healthcare instruments</em> at IIT Indore's DRISHTI CPS Foundation,
+        to writing <em>Zigbee firmware</em> for student racing cars at Hochschule Darmstadt.
+      </p>
+      <p>
+        I believe the best engineering is simple, testable, and humble about its assumptions —
+        because in embedded, <em>"there's no silver bullet."</em>
+      </p>
+
+      <div class="schem-rule"><span class="mid">+V · CURRENT FOCUS · GND</span></div>
+      <p>
+        <span class="accent">Currently →</span> updating the CDD and communication stack
+        of a Zigbee radio-controlled remote on student cars, plus researching
+        edge-AI on Cortex-M for my master's.
+      </p>
+    </div>
+
+    <div class="info-card reveal">
+      <span class="mono-label">// quick.stats</span>
+      <h3 style="margin:.5rem 0 1.25rem;">At a glance</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:.9rem;">
+        <li><i class="fa-solid fa-microchip accent"></i> &nbsp;<strong class="accent">32-bit ARM Cortex-M</strong> specialist</li>
+        <li><i class="fa-solid fa-code accent"></i> &nbsp;<strong class="accent">C / C++ / Python</strong> for firmware &amp; tooling</li>
+        <li><i class="fa-solid fa-diagram-project accent"></i> &nbsp;<strong class="accent">KiCAD + Fusion360</strong> for HW design</li>
+        <li><i class="fa-solid fa-satellite-dish accent"></i> &nbsp;<strong class="accent">Zigbee · CAN · I²C · SPI</strong> protocols</li>
+        <li><i class="fa-solid fa-shield-halved accent"></i> &nbsp;<strong class="accent">Functional safety</strong> mindset</li>
+        <li><i class="fa-solid fa-location-dot accent"></i> &nbsp;Based in <strong>Darmstadt, Germany</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======== HEX TICKER ======== -->
+<section class="container">
+  <div class="hex-ticker">
+    <span class="track">
+      // 0xDEADBEEF :: INIT :: GPIO_Init() :: CLK_Init() :: RTOS_Start() :: 0xFEEDFACE :: NVIC → IRQ_EN :: SPI ← 0x5A :: ADC → 0x03FF :: CAN_TX → 0x2A1 :: DMA → CH4 ENABLED :: WDT → 4 s :: PWM @ 1 kHz :: PID.Kp=0.42 :: I²C → ACK :: UART @ 115200 :: LORA_TX → MSG_OK :: 0xCAFEBABE :: FLASH_WRITE 0x08010000 ::
+      // 0xDEADBEEF :: INIT :: GPIO_Init() :: CLK_Init() :: RTOS_Start() :: 0xFEEDFACE :: NVIC → IRQ_EN :: SPI ← 0x5A :: ADC → 0x03FF :: CAN_TX → 0x2A1 :: DMA → CH4 ENABLED :: WDT → 4 s :: PWM @ 1 kHz :: PID.Kp=0.42 :: I²C → ACK :: UART @ 115200 :: LORA_TX → MSG_OK :: 0xCAFEBABE :: FLASH_WRITE 0x08010000 ::
+    </span>
+  </div>
+</section>
+
+<!-- ======== EDUCATION ======== -->
+<section class="container" id="education">
+  <div class="section-title reveal"><span class="mono-label">02 / education</span><h2>Education</h2></div>
+  <div class="projects-grid">
+    <div class="info-card reveal">
+      <span class="period"><i class="fa-regular fa-calendar"></i> Sep 2025 — Present</span>
+      <h3>M.Sc. Electrical Engineering &amp; Information Technology</h3>
+      <p class="place">Hochschule Darmstadt University of Applied Sciences, Germany</p>
+      <p><strong class="accent">Major:</strong> Embedded Systems and Microelectronics</p>
+    </div>
+    <div class="info-card reveal">
+      <span class="period"><i class="fa-regular fa-calendar"></i> Jul 2018 — Aug 2022</span>
+      <h3>B.Tech. in Mechatronics</h3>
+      <p class="place">Shri Vaishnav Institute of Technology and Science, SVVV, Indore (India)</p>
+      <p>Cross-disciplinary foundation — electronics, mechanics, control systems.</p>
+    </div>
+    <div class="info-card reveal">
+      <span class="period"><i class="fa-regular fa-calendar"></i> Apr 2017 — Apr 2018</span>
+      <h3>High School — Science &amp; Mathematics</h3>
+      <p class="place">St. Arnold's Higher Secondary School, CBSE, Indore (India)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======== QUOTE (sys-log) ======== -->
+<section class="container" style="padding-top:0; padding-bottom:0;">
+  <div class="sys-log reveal">
+    <span class="sl-tag">// DEBUG</span>
+    <span class="sl-msg">"You must not fool yourself — and you are the easiest person to fool."</span>
+    <span class="sl-src">— Feynman</span>
+  </div>
+</section>
+
+<!-- ======== SKILLS ======== -->
+<section class="container" id="skills">
+  <div class="section-title reveal"><span class="mono-label">03 / skills</span><h2>Tech Stack</h2></div>
+
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <h4><span class="ico"><i class="fa-solid fa-microchip"></i></span>// Electronics</h4>
+      <div class="tag-cloud">
+        <span class="tag">RTOS</span>
+        <span class="tag">Complex Device Drivers</span>
+        <span class="tag">ARM Cortex-M (32-bit)</span>
+        <span class="tag">Communication Protocols</span>
+        <span class="tag">IoT</span>
+        <span class="tag">Schematic Design</span>
+        <span class="tag">PCB Design</span>
+      </div>
+    </div>
+
+    <div class="skill-group reveal">
+      <h4><span class="ico"><i class="fa-solid fa-code"></i></span>// Languages</h4>
+      <div class="tag-cloud">
+        <span class="tag">C</span>
+        <span class="tag">C++</span>
+        <span class="tag">Python</span>
+        <span class="tag">MySQL</span>
+      </div>
+    </div>
+
+    <div class="skill-group reveal">
+      <h4><span class="ico"><i class="fa-solid fa-screwdriver-wrench"></i></span>// Tools</h4>
+      <div class="tag-cloud">
+        <span class="tag">Git</span>
+        <span class="tag">GitLab</span>
+        <span class="tag">KiCAD</span>
+        <span class="tag">Fusion 360</span>
+        <span class="tag">AWS EC2</span>
+      </div>
+    </div>
+
+    <div class="skill-group reveal">
+      <h4><span class="ico"><i class="fa-solid fa-gears"></i></span>// Mechanical</h4>
+      <div class="tag-cloud">
+        <span class="tag">CAD</span>
+        <span class="tag">3D Printing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== SCOPE STRIP (bottom) ======== -->
+<section class="container" style="padding-top:1.5rem;">
+  <div class="scope-strip reveal">
+    <div class="label">CH2 · PWM<br/><span class="muted">motor driver</span></div>
+    <svg data-wave="pwm" aria-hidden="true"></svg>
+    <div class="readout"><strong>1 kHz</strong> · 50%<br/><span class="muted">duty.locked</span></div>
+  </div>
+</section>
+
+<!-- ======== QUOTE (sys-log) ======== -->
+<section class="container" style="padding-top:0; padding-bottom:0;">
+  <div class="sys-log reveal">
+    <span class="sl-tag">// LOG</span>
+    <span class="sl-msg">"A good engineer makes a design that works with as few original ideas as possible."</span>
+    <span class="sl-src">— Freeman Dyson</span>
+  </div>
+</section>
+
+<!-- ======== CTA ======== -->
+<section class="container" style="text-align:center;">
+  <div class="reveal">
+    <p class="mono-label">// let's build something.</p>
+    <h2 style="margin:1rem 0 1.5rem;">Ready to <span class="accent">transmit</span>?</h2>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn primary" href="projects.html"><i class="fa-solid fa-folder-open"></i> see projects</a>
+      <a class="btn" href="contact.html"><i class="fa-solid fa-paper-plane"></i> say hi</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer>
+  <p>&copy; <span id="yr"></span> Dikshant Agrawal · compiled with <span class="accent">GCC 13.2</span> · Darmstadt, DE</p>
+  <div class="footer-row">
+    <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> github</a>
+    <a href="https://www.linkedin.com/in/agrawaldikshant/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> linkedin</a>
+    <a href="mailto:agrawaldikshant3001@gmail.com"><i class="fa-solid fa-envelope"></i> email</a>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="assets/script.js"></script>
+</body>
+</html>
+                                                                                                                                                                                                                                    

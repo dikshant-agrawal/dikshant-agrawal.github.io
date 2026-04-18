@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Dikshant Agrawal</title>
+  <meta name="description" content="Embedded systems, firmware, and PCB projects by Dikshant Agrawal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23070709'/%3E%3Cpath d='M8 10 h10 a6 6 0 0 1 0 12 h-10 z M10 14 h6 a2 2 0 0 1 0 4 h-6 z' fill='%23ff003c'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<canvas id="circuit-bg"></canvas>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="dot"></span> dikshant.dev</a>
+    <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links">
+      <li><a href="index.html">home</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="experience.html">experience</a></li>
+      <li><a href="contact.html">contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header container">
+  <p class="mono-label">// grep -r 'hardware + firmware'</p>
+  <h1>Projects</h1>
+  <p>A selection of embedded systems, firmware, and hardware projects I've built —
+     from radio-controlled stacks to life-saving medical instruments.</p>
+</header>
+
+<!-- ======== QUOTE ======== -->
+<section class="container" style="padding:1rem 1.5rem 2rem;">
+  <blockquote class="quote reveal">
+    <p>"There's no silver bullet."</p>
+    <cite>— Fred Brooks, The Mythical Man-Month</cite>
+  </blockquote>
+</section>
+
+<!-- ======== PROJECTS GRID ======== -->
+<section class="container">
+  <div class="projects-grid">
+
+    <!-- Project 1 -->
+    <article class="project-card reveal">
+      <div class="project-img" style="background: linear-gradient(135deg, #1a0a14, #100008);">
+        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+          <rect x="50" y="30" width="100" height="60" rx="6" fill="#13131a" stroke="#ff003c" stroke-width="2"/>
+          <text x="100" y="65" fill="#ff003c" text-anchor="middle" font-family="JetBrains Mono" font-size="12" font-weight="700">Zigbee MCU</text>
+          <g stroke="#ff003c" stroke-width="1.5" fill="none">
+            <path d="M30 50 h20 M30 70 h20 M150 50 h20 M150 70 h20"/>
+            <circle cx="25" cy="50" r="3" fill="#ff003c"/>
+            <circle cx="25" cy="70" r="3" fill="#ff003c"/>
+            <circle cx="175" cy="50" r="3" fill="#ff003c"/>
+            <circle cx="175" cy="70" r="3" fill="#ff003c"/>
+          </g>
+          <circle cx="100" cy="20" r="3" fill="#ff003c">
+            <animate attributeName="r" values="3;6;3" dur="1.5s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="tag">Zigbee</span>
+          <span class="tag">AUTOSAR CDD</span>
+          <span class="tag">ARM Cortex</span>
+          <span class="tag">C</span>
+        </div>
+        <h3>Zigbee Radio Stack for Student Racing Car</h3>
+        <p>Extending the CDD and communication stack layer of a Zigbee-based
+           remote for Hochschule Darmstadt's student cars, maintaining backward
+           compatibility while adding new state transitions.</p>
+        <div class="project-links">
+          <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+          <a href="#" ><i class="fa-solid fa-book-open"></i> Case Study</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 2 -->
+    <article class="project-card reveal">
+      <div class="project-img" style="background: linear-gradient(135deg, #0a1a14, #000810);">
+        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="35" width="160" height="50" rx="4" fill="#13131a" stroke="#ff003c" stroke-width="2"/>
+          <path d="M30 60 Q 50 40 70 60 T 110 60 T 150 60 T 175 60" stroke="#ff003c" stroke-width="2" fill="none">
+            <animate attributeName="stroke-dasharray" values="0 200;200 0" dur="2s" repeatCount="indefinite"/>
+          </path>
+          <text x="100" y="25" fill="#ff003c" text-anchor="middle" font-family="JetBrains Mono" font-size="10">ECG MONITOR</text>
+        </svg>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="tag">Medical</span>
+          <span class="tag">STM32</span>
+          <span class="tag">RTOS</span>
+          <span class="tag">SPI/I²C</span>
+        </div>
+        <h3>Point-of-Care Healthcare Device</h3>
+        <p>Firmware for a low-cost diagnostic device built at IIT Indore DRISHTI
+           CPS Foundation. Deployed to rural clinics, the innovation has saved
+           lives while cutting diagnostic costs significantly.</p>
+        <div class="project-links">
+          <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+          <a href="#" ><i class="fa-solid fa-book-open"></i> Case Study</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 3 -->
+    <article class="project-card reveal">
+      <div class="project-img" style="background: linear-gradient(135deg, #1a1408, #100800);">
+        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+          <rect x="30" y="30" width="60" height="40" rx="3" fill="none" stroke="#ff003c" stroke-width="2"/>
+          <rect x="110" y="30" width="60" height="40" rx="3" fill="none" stroke="#ff003c" stroke-width="2"/>
+          <path d="M90 50 h20" stroke="#ff003c" stroke-width="2"/>
+          <text x="60" y="55" fill="#ff003c" text-anchor="middle" font-family="JetBrains Mono" font-size="11">IN</text>
+          <text x="140" y="55" fill="#ff003c" text-anchor="middle" font-family="JetBrains Mono" font-size="11">OUT</text>
+          <path d="M30 90 L 170 90" stroke="#ff003c" stroke-width="1" stroke-dasharray="4"/>
+          <text x="100" y="105" fill="#ff003c" text-anchor="middle" font-family="JetBrains Mono" font-size="9">BUCK  DC-DC</text>
+        </svg>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="tag">Aerospace</span>
+          <span class="tag">Power</span>
+          <span class="tag">Schematic</span>
+          <span class="tag">KiCAD</span>
+        </div>
+        <h3>Aerospace-Grade Buck Converter</h3>
+        <p>Hardware design of a DC-DC buck converter for an aerospace
+           sub-system during my bachelor's internship at Einfochips. Focused
+           on efficiency, EMI compliance, and thermal envelopes.</p>
+        <div class="project-links">
+          <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+          <a href="#" ><i class="fa-solid fa-book-open"></i> Case Study</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 4 -->
+    <article class="project-card reveal">
+      <div class="project-img" style="background: linear-gradient(135deg, #14081a, #080010);">
+        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="28" fill="none" stroke="#ff003c" stroke-width="2"/>
+          <circle cx="140" cy="60" r="28" fill="none" stroke="#ff003c" stroke-width="2"/>
+          <path d="M88 60 h24" stroke="#ff003c" stroke-width="2"/>
+          <text x="60" y="64" fill="#ff003c" text-anchor="middle" font-family="JetBrains Mono" font-size="10">kWh</text>
+          <text x="140" y="64" fill="#ff003c" text-anchor="middle" font-family="JetBrains Mono" font-size="10">RF</text>
+          <path d="M140 30 Q 160 20 170 35 M140 25 Q 170 10 185 30" stroke="#ff003c" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="tag">LoRa</span>
+          <span class="tag">Energy</span>
+          <span class="tag">Training Kit</span>
+        </div>
+        <h3>Wireless Energy-Monitoring Training Boards</h3>
+        <p>Hands-on teaching kits for Scientech Technologies combining LoRa /
+           BLE / Zigbee radios with real-time energy metering, used by
+           universities across India.</p>
+        <div class="project-links">
+          <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+          <a href="#" ><i class="fa-solid fa-book-open"></i> Case Study</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 5 -->
+    <article class="project-card reveal">
+      <div class="project-img" style="background: linear-gradient(135deg, #081a1a, #001010);">
+        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+          <rect x="40" y="30" width="120" height="60" rx="4" fill="#13131a" stroke="#ff003c" stroke-width="2"/>
+          <circle cx="60" cy="50" r="2" fill="#ff003c"/>
+          <circle cx="80" cy="50" r="2" fill="#ff003c"/>
+          <circle cx="100" cy="50" r="2" fill="#ff003c"/>
+          <circle cx="120" cy="50" r="2" fill="#ff003c"/>
+          <circle cx="140" cy="50" r="2" fill="#ff003c"/>
+          <circle cx="60" cy="70" r="2" fill="#ff003c"/>
+          <circle cx="80" cy="70" r="2" fill="#ff003c"/>
+          <circle cx="100" cy="70" r="2" fill="#ff003c"/>
+          <circle cx="120" cy="70" r="2" fill="#ff003c"/>
+          <circle cx="140" cy="70" r="2" fill="#ff003c"/>
+          <text x="100" y="20" fill="#ff003c" text-anchor="middle" font-family="JetBrains Mono" font-size="10">TensorFlow Lite Micro</text>
+          <text x="100" y="108" fill="#ff003c" text-anchor="middle" font-family="JetBrains Mono" font-size="9">EDGE INFERENCE</text>
+        </svg>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="tag">Edge AI</span>
+          <span class="tag">TFLite Micro</span>
+          <span class="tag">Research</span>
+        </div>
+        <h3>Edge-AI Keyword Spotting on Cortex-M4</h3>
+        <p>A master's research project exploring quantized neural networks
+           running entirely on-device. Measuring accuracy vs. energy trade-offs
+           for always-on voice triggers.</p>
+        <div class="project-links">
+          <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+          <a href="#" ><i class="fa-solid fa-book-open"></i> Case Study</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 6 -->
+    <article class="project-card reveal">
+      <div class="project-img" style="background: linear-gradient(135deg, #1a1a08, #101000);">
+        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#ff003c" stroke-width="1.5" fill="none">
+            <rect x="30" y="30" width="40" height="60" rx="3"/>
+            <rect x="130" y="30" width="40" height="60" rx="3"/>
+            <path d="M70 60 h60"/>
+            <path d="M70 45 h10 v-8 h10 v8 h10" stroke-dasharray="3"/>
+          </g>
+          <circle cx="100" cy="60" r="4" fill="#ff003c">
+            <animate attributeName="cx" values="70;130;70" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <text x="50" y="65" fill="#ff003c" text-anchor="middle" font-family="JetBrains Mono" font-size="10">CAN-H</text>
+          <text x="150" y="65" fill="#ff003c" text-anchor="middle" font-family="JetBrains Mono" font-size="10">CAN-L</text>
+        </svg>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="tag">CAN Bus</span>
+          <span class="tag">AUTOSAR</span>
+          <span class="tag">Automotive</span>
+        </div>
+        <h3>CAN Bus Gateway &amp; Diagnostic Logger</h3>
+        <p>A configurable gateway routing CAN frames between high-speed and
+           low-speed buses with a UART console for live diagnostics —
+           coursework turned side project.</p>
+        <div class="project-links">
+          <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+          <a href="#" ><i class="fa-solid fa-book-open"></i> Case Study</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ======== QUOTE ======== -->
+<section class="container">
+  <blockquote class="quote reveal">
+    <p>"If you can't describe what you are doing as a process, you don't know what you're doing."</p>
+    <cite>— W. Edwards Deming</cite>
+  </blockquote>
+</section>
+
+<!-- ======== CTA ======== -->
+<section class="container" style="text-align:center;">
+  <div class="reveal">
+    <p class="mono-label">// want to see more?</p>
+    <h2 style="margin:1rem 0 1.5rem;">Full catalogue on <span class="accent">GitHub</span>.</h2>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn primary" href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> visit github</a>
+      <a class="btn" href="contact.html"><i class="fa-solid fa-handshake"></i> work with me</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; <span id="yr"></span> Dikshant Agrawal · built with <span class="accent">&lt;C/&gt;</span> · Darmstadt, DE</p>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="assets/script.js"></script>
+</body>
+</html>

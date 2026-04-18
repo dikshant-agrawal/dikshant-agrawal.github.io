@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Dikshant Agrawal</title>
+  <meta name="description" content="Embedded systems, firmware, and PCB projects by Dikshant Agrawal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2304060f'/%3E%3Cpath d='M6 8 h4 v16 h-4 z M12 8 h16 v4 h-6 v4 h4 v4 h-4 v4 h6 v4 h-16 z' fill='%2300e5ff'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<canvas id="grid-floor"></canvas>
+<canvas id="circuit-bg"></canvas>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="dot"></span> dikshant.sys</a>
+    <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links">
+      <li><a href="index.html">home</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="experience.html">experience</a></li>
+      <li><a href="contact.html">contact</a></li>
+      <li><span id="live-clock" class="live-clock">DA/--:--:-- CET</span></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header container">
+  <div class="side-hex left"></div>
+  <div class="side-hex right"></div>
+  <p class="mono-label">// grep -r 'hardware + firmware' ./projects</p>
+  <h1>Projects</h1>
+  <p>A selection of embedded systems, firmware, and hardware projects I've built —
+     from radio-controlled stacks to life-saving medical instruments.</p>
+</header>
+
+<!-- ======== OSCILLOSCOPE STRIP ======== -->
+<section class="container" style="padding-top:0.5rem; padding-bottom:1.5rem;">
+  <div class="scope-strip reveal">
+    <div class="label">CH3 · I²C<br/><span class="muted">400 kHz</span></div>
+    <svg data-wave="square" aria-hidden="true"></svg>
+    <div class="readout"><strong>ACK</strong> received<br/><span class="muted">slave 0x48</span></div>
+  </div>
+</section>
+
+<!-- ======== QUOTE ======== -->
+<section class="container" style="padding-top:1rem; padding-bottom:2rem;">
+  <blockquote class="quote reveal">
+    <p>"There's no silver bullet."</p>
+    <cite>— Fred Brooks · The Mythical Man-Month, 1986</cite>
+  </blockquote>
+</section>
+
+<!-- ======== PROJECTS GRID ======== -->
+<section class="container">
+  <div class="section-title reveal"><span class="mono-label">// catalogue</span><h2>Featured Work</h2></div>
+
+  <div class="projects-grid">
+
+    <!-- Project 1: Zigbee / Student Car -->
+    <article class="project-card reveal">
+      <div class="project-img">
+        <svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
+          <!-- IC package -->
+          <rect x="80" y="50" width="100" height="60" rx="4" fill="#0a1a2a" stroke="#00e5ff" stroke-width="2"/>
+          <text x="130" y="78" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700">Zigbee + MCU</text>
+          <text x="130" y="94" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="8" opacity=".7">CC2538</text>
+          <!-- Pins -->
+          <g stroke="#00e5ff" stroke-width="1.5" fill="none" opacity=".8">
+            <path d="M60 62 h20 M60 78 h20 M60 94 h20 M180 62 h20 M180 78 h20 M180 94 h20"/>
+          </g>
+          <!-- Antenna -->
+          <circle cx="130" cy="30" r="4" fill="#00e5ff">
+            <animate attributeName="r" values="4;7;4" dur="1.5s" repeatCount="indefinite"/>
+          </circle>
+          <path d="M115 30 Q 130 10 145 30" stroke="#00e5ff" stroke-width="1.5" fill="none"/>
+          <path d="M105 30 Q 130 0 155 30" stroke="#00e5ff" stroke-width="1" fill="none" opacity=".5"/>
+          <!-- Traces -->
+          <path d="M40 130 L 100 130 L 100 110" stroke="#00e5ff" stroke-width="1.5" fill="none" opacity=".6"/>
+          <path d="M220 130 L 160 130 L 160 110" stroke="#00e5ff" stroke-width="1.5" fill="none" opacity=".6"/>
+          <circle cx="40" cy="130" r="3" fill="#00e5ff"/>
+          <circle cx="220" cy="130" r="3" fill="#00e5ff"/>
+        </svg>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="tag">Zigbee</span>
+          <span class="tag">AUTOSAR CDD</span>
+          <span class="tag">ARM Cortex</span>
+          <span class="tag">C</span>
+        </div>
+        <h3>Zigbee Radio Stack for Racing Car</h3>
+        <p>Extending the CDD and communication stack layer of a Zigbee-based
+           remote for Hochschule Darmstadt's student cars, maintaining backward
+           compatibility while adding new state transitions.</p>
+        <div class="project-meta">
+          <span><strong>role:</strong> firmware eng.</span>
+          <span><strong>mcu:</strong> CC2538</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+          <a href="#"><i class="fa-solid fa-book-open"></i> Case Study</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 2: Healthcare -->
+    <article class="project-card reveal">
+      <div class="project-img">
+        <svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
+          <!-- Device outline -->
+          <rect x="30" y="40" width="200" height="70" rx="6" fill="#0a1a2a" stroke="#00e5ff" stroke-width="2"/>
+          <rect x="40" y="55" width="110" height="40" rx="3" fill="#02080e" stroke="#00e5ff" stroke-width="1"/>
+          <!-- EKG trace -->
+          <path d="M45 75 L 60 75 L 65 60 L 70 90 L 75 50 L 80 75 L 100 75 L 105 65 L 115 85 L 120 75 L 145 75" stroke="#00e5ff" stroke-width="1.8" fill="none" filter="drop-shadow(0 0 3px #00e5ff)">
+            <animate attributeName="stroke-dasharray" values="0 300;300 0" dur="2.5s" repeatCount="indefinite"/>
+          </path>
+          <!-- Buttons -->
+          <circle cx="175" cy="75" r="10" fill="none" stroke="#00e5ff" stroke-width="1.5"/>
+          <circle cx="205" cy="75" r="10" fill="none" stroke="#00e5ff" stroke-width="1.5"/>
+          <text x="175" y="79" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="8">▶</text>
+          <text x="205" y="79" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="8">■</text>
+          <text x="130" y="30" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700">POINT-OF-CARE</text>
+          <text x="130" y="130" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="8" opacity=".7">72 BPM · SpO₂ 98%</text>
+        </svg>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="tag">Medical</span>
+          <span class="tag">STM32</span>
+          <span class="tag">RTOS</span>
+          <span class="tag">SPI/I²C</span>
+        </div>
+        <h3>Point-of-Care Healthcare Device</h3>
+        <p>Firmware for a low-cost diagnostic device built at IIT Indore DRISHTI
+           CPS Foundation. Deployed to rural clinics — the innovation has
+           <span class="accent">saved lives</span> while cutting diagnostic cost.</p>
+        <div class="project-meta">
+          <span><strong>role:</strong> embedded eng.</span>
+          <span><strong>impact:</strong> high</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+          <a href="#"><i class="fa-solid fa-book-open"></i> Case Study</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 3: Buck Converter -->
+    <article class="project-card reveal">
+      <div class="project-img">
+        <svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
+          <!-- IN/OUT boxes -->
+          <rect x="20" y="50" width="60" height="50" rx="3" fill="none" stroke="#00e5ff" stroke-width="2"/>
+          <text x="50" y="78" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="11">V_IN</text>
+          <text x="50" y="92" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="7" opacity=".6">28V</text>
+
+          <rect x="180" y="50" width="60" height="50" rx="3" fill="none" stroke="#00e5ff" stroke-width="2"/>
+          <text x="210" y="78" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="11">V_OUT</text>
+          <text x="210" y="92" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="7" opacity=".6">5V · 3A</text>
+
+          <!-- Inductor (coil) -->
+          <path d="M80 75 q5 -12 10 0 q5 -12 10 0 q5 -12 10 0 q5 -12 10 0" stroke="#00e5ff" stroke-width="1.8" fill="none"/>
+          <!-- Capacitor -->
+          <line x1="120" y1="65" x2="120" y2="85" stroke="#00e5ff" stroke-width="2"/>
+          <line x1="126" y1="65" x2="126" y2="85" stroke="#00e5ff" stroke-width="2"/>
+          <line x1="120" y1="75" x2="80" y2="75" stroke="#00e5ff" stroke-width="1.5"/>
+          <line x1="126" y1="75" x2="180" y2="75" stroke="#00e5ff" stroke-width="1.5"/>
+          <!-- Ground -->
+          <line x1="155" y1="85" x2="155" y2="110" stroke="#00e5ff" stroke-width="1.5"/>
+          <line x1="145" y1="110" x2="165" y2="110" stroke="#00e5ff" stroke-width="2"/>
+          <line x1="148" y1="115" x2="162" y2="115" stroke="#00e5ff" stroke-width="1.5"/>
+          <line x1="152" y1="120" x2="158" y2="120" stroke="#00e5ff" stroke-width="1"/>
+
+          <text x="130" y="30" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700">BUCK CONVERTER</text>
+          <text x="130" y="140" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="8" opacity=".7">DC · DC · η 92%</text>
+        </svg>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="tag">Aerospace</span>
+          <span class="tag">Power</span>
+          <span class="tag">Schematic</span>
+          <span class="tag">KiCAD</span>
+        </div>
+        <h3>Aerospace-Grade Buck Converter</h3>
+        <p>Hardware design of a DC-DC buck converter for an aerospace sub-system
+           during my bachelor's internship at Einfochips. Focused on efficiency,
+           EMI compliance, and thermal envelopes.</p>
+        <div class="project-meta">
+          <span><strong>role:</strong> HW design intern</span>
+          <span><strong>η:</strong> 92%</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+          <a href="#"><i class="fa-solid fa-book-open"></i> Case Study</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 4: Wireless training -->
+    <article class="project-card reveal">
+      <div class="project-img">
+        <svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
+          <!-- Board -->
+          <rect x="30" y="40" width="200" height="80" rx="5" fill="#0a1a2a" stroke="#00e5ff" stroke-width="2"/>
+          <!-- IC -->
+          <rect x="70" y="65" width="50" height="30" rx="2" fill="#02080e" stroke="#00e5ff" stroke-width="1"/>
+          <text x="95" y="84" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="8">LoRa</text>
+          <!-- Antenna -->
+          <path d="M95 65 q0 -15 20 -15" stroke="#00e5ff" stroke-width="1.5" fill="none"/>
+          <circle cx="115" cy="50" r="2" fill="#00e5ff"/>
+          <!-- kWh display -->
+          <rect x="140" y="65" width="70" height="30" rx="2" fill="#02080e" stroke="#00e5ff" stroke-width="1"/>
+          <text x="175" y="79" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="9">3.14</text>
+          <text x="175" y="90" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="7" opacity=".7">kWh</text>
+          <!-- RF waves -->
+          <path d="M115 45 Q 130 25 145 45" stroke="#00e5ff" stroke-width="1.2" fill="none" opacity=".6"/>
+          <path d="M110 45 Q 130 15 150 45" stroke="#00e5ff" stroke-width="1" fill="none" opacity=".4"/>
+          <!-- Headers -->
+          <g fill="#00e5ff">
+            <circle cx="50" cy="105" r="2"/><circle cx="60" cy="105" r="2"/>
+            <circle cx="70" cy="105" r="2"/><circle cx="80" cy="105" r="2"/>
+            <circle cx="90" cy="105" r="2"/><circle cx="100" cy="105" r="2"/>
+          </g>
+          <text x="130" y="30" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700">WIRELESS + ENERGY LAB</text>
+        </svg>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="tag">LoRa</span>
+          <span class="tag">Energy</span>
+          <span class="tag">Training Kit</span>
+        </div>
+        <h3>Wireless Energy-Monitoring Boards</h3>
+        <p>Hands-on teaching kits for Scientech Technologies combining LoRa /
+           BLE / Zigbee radios with real-time energy metering, used by
+           universities across India.</p>
+        <div class="project-meta">
+          <span><strong>role:</strong> R&amp;D engineer</span>
+          <span><strong>users:</strong> 50+ colleges</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+          <a href="#"><i class="fa-solid fa-book-open"></i> Case Study</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 5: Edge-AI -->
+    <article class="project-card reveal">
+      <div class="project-img">
+        <svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
+          <!-- Neural network -->
+          <g fill="#00e5ff">
+            <circle cx="60" cy="50" r="5"/><circle cx="60" cy="75" r="5"/><circle cx="60" cy="100" r="5"/>
+            <circle cx="130" cy="40" r="5"/><circle cx="130" cy="65" r="5"/><circle cx="130" cy="90" r="5"/><circle cx="130" cy="115" r="5"/>
+            <circle cx="200" cy="65" r="5"/><circle cx="200" cy="90" r="5"/>
+          </g>
+          <g stroke="#00e5ff" stroke-width="0.6" opacity=".5">
+            <line x1="60" y1="50" x2="130" y2="40"/><line x1="60" y1="50" x2="130" y2="65"/><line x1="60" y1="50" x2="130" y2="90"/><line x1="60" y1="50" x2="130" y2="115"/>
+            <line x1="60" y1="75" x2="130" y2="40"/><line x1="60" y1="75" x2="130" y2="65"/><line x1="60" y1="75" x2="130" y2="90"/><line x1="60" y1="75" x2="130" y2="115"/>
+            <line x1="60" y1="100" x2="130" y2="40"/><line x1="60" y1="100" x2="130" y2="65"/><line x1="60" y1="100" x2="130" y2="90"/><line x1="60" y1="100" x2="130" y2="115"/>
+            <line x1="130" y1="40" x2="200" y2="65"/><line x1="130" y1="40" x2="200" y2="90"/>
+            <line x1="130" y1="65" x2="200" y2="65"/><line x1="130" y1="65" x2="200" y2="90"/>
+            <line x1="130" y1="90" x2="200" y2="65"/><line x1="130" y1="90" x2="200" y2="90"/>
+            <line x1="130" y1="115" x2="200" y2="65"/><line x1="130" y1="115" x2="200" y2="90"/>
+          </g>
+          <text x="130" y="20" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700">TFLite Micro · Cortex-M4</text>
+          <text x="130" y="140" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="8" opacity=".7">int8 quantized · 24 kB flash</text>
+        </svg>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="tag">Edge AI</span>
+          <span class="tag">TFLite Micro</span>
+          <span class="tag">Research</span>
+        </div>
+        <h3>Edge-AI Keyword Spotting on Cortex-M4</h3>
+        <p>A master's research project exploring quantized neural networks
+           running entirely on-device. Measuring accuracy vs. energy trade-offs
+           for always-on voice triggers.</p>
+        <div class="project-meta">
+          <span><strong>role:</strong> research (M.Sc.)</span>
+          <span><strong>size:</strong> 24 kB</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+          <a href="#"><i class="fa-solid fa-book-open"></i> Case Study</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 6: CAN Bus -->
+    <article class="project-card reveal">
+      <div class="project-img">
+        <svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
+          <!-- Nodes -->
+          <rect x="30" y="55" width="60" height="40" rx="3" fill="#0a1a2a" stroke="#00e5ff" stroke-width="2"/>
+          <text x="60" y="78" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="10">NODE A</text>
+          <rect x="170" y="55" width="60" height="40" rx="3" fill="#0a1a2a" stroke="#00e5ff" stroke-width="2"/>
+          <text x="200" y="78" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="10">NODE B</text>
+          <!-- Bus -->
+          <line x1="90" y1="70" x2="170" y2="70" stroke="#00e5ff" stroke-width="2"/>
+          <line x1="90" y1="80" x2="170" y2="80" stroke="#00e5ff" stroke-width="2"/>
+          <text x="130" y="67" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="7">CAN_H</text>
+          <text x="130" y="95" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="7">CAN_L</text>
+          <!-- Terminator resistors -->
+          <rect x="85" y="73" width="10" height="4" fill="none" stroke="#00e5ff" stroke-width="1"/>
+          <rect x="165" y="73" width="10" height="4" fill="none" stroke="#00e5ff" stroke-width="1"/>
+          <!-- Moving pulse -->
+          <circle cx="130" cy="75" r="4" fill="#00e5ff" filter="drop-shadow(0 0 6px #00e5ff)">
+            <animate attributeName="cx" values="90;170;90" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <text x="130" y="30" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700">CAN GATEWAY · 1 Mbps</text>
+          <text x="130" y="130" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="8" opacity=".7">ID 0x2A1 · DLC 8</text>
+        </svg>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="tag">CAN Bus</span>
+          <span class="tag">AUTOSAR</span>
+          <span class="tag">Automotive</span>
+        </div>
+        <h3>CAN Bus Gateway &amp; Diagnostic Logger</h3>
+        <p>A configurable gateway routing CAN frames between high-speed and
+           low-speed buses with a UART console for live diagnostics —
+           coursework turned side project.</p>
+        <div class="project-meta">
+          <span><strong>role:</strong> personal project</span>
+          <span><strong>rate:</strong> 1 Mbps</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+          <a href="#"><i class="fa-solid fa-book-open"></i> Case Study</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ======== HEX TICKER ======== -->
+<section class="container">
+  <div class="hex-ticker">
+    <span class="track">
+      /proj/zigbee → BUILD: OK  ::  /proj/ekg-monitor → DEPLOYED @ clinic_0x03  ::  /proj/buck → EFFICIENCY: 92.4%  ::  /proj/lora-kit → UNITS: 50+  ::  /proj/edge-ai → MODEL: 24 kB  ::  /proj/can-gw → 1 Mbps NOMINAL  ::
+      /proj/zigbee → BUILD: OK  ::  /proj/ekg-monitor → DEPLOYED @ clinic_0x03  ::  /proj/buck → EFFICIENCY: 92.4%  ::  /proj/lora-kit → UNITS: 50+  ::  /proj/edge-ai → MODEL: 24 kB  ::  /proj/can-gw → 1 Mbps NOMINAL  ::
+    </span>
+  </div>
+</section>
+
+<!-- ======== QUOTE ======== -->
+<section class="container">
+  <blockquote class="quote reveal">
+    <p>"If you can't describe what you are doing as a process, you don't know what you're doing."</p>
+    <cite>— W. Edwards Deming</cite>
+  </blockquote>
+</section>
+
+<!-- ======== CTA ======== -->
+<section class="container" style="text-align:center;">
+  <div class="reveal">
+    <p class="mono-label">// want to see more?</p>
+    <h2 style="margin:1rem 0 1.5rem;">Full catalogue on <span class="accent">GitHub</span>.</h2>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn primary" href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> visit github</a>
+      <a class="btn" href="contact.html"><i class="fa-solid fa-handshake"></i> work with me</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; <span id="yr"></span> Dikshant Agrawal · compiled with <span class="accent">GCC 13.2</span> · Darmstadt, DE</p>
+  <div class="footer-row">
+    <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> github</a>
+    <a href="https://www.linkedin.com/in/agrawaldikshant/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> linkedin</a>
+    <a href="mailto:agrawaldikshant3001@gmail.com"><i class="fa-solid fa-envelope"></i> email</a>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="assets/script.js"></script>
+</body>
+</html>

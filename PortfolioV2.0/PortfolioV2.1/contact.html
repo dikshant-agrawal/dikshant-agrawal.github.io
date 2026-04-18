@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Dikshant Agrawal</title>
+  <meta name="description" content="Work with Dikshant Agrawal — Embedded Systems Engineer based in Darmstadt, Germany." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2304060f'/%3E%3Cpath d='M6 8 h4 v16 h-4 z M12 8 h16 v4 h-6 v4 h4 v4 h-4 v4 h6 v4 h-16 z' fill='%2300e5ff'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<canvas id="grid-floor"></canvas>
+<canvas id="circuit-bg"></canvas>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="dot"></span> dikshant.sys</a>
+    <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links">
+      <li><a href="index.html">home</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="experience.html">experience</a></li>
+      <li><a href="contact.html">contact</a></li>
+      <li><span id="live-clock" class="live-clock">DA/--:--:-- CET</span></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header container">
+  <div class="side-hex left"></div>
+  <div class="side-hex right"></div>
+  <p class="mono-label">// ping --init handshake</p>
+  <h1>Work With Me</h1>
+  <p>Building something at the edge of embedded + AI? Looking for a firmware engineer,
+     research collaborator, or working-student? Let's connect.</p>
+</header>
+
+<!-- ======== OSCILLOSCOPE STRIP ======== -->
+<section class="container" style="padding-top:0.5rem; padding-bottom:1rem;">
+  <div class="scope-strip reveal">
+    <div class="label">TX · RX<br/><span class="muted">handshake</span></div>
+    <svg data-wave="square" aria-hidden="true"></svg>
+    <div class="readout"><strong>link up</strong><br/><span class="muted">awaiting data</span></div>
+  </div>
+</section>
+
+<!-- ======== QUOTE ======== -->
+<section class="container" style="padding:1rem 1.5rem 2rem;">
+  <blockquote class="quote reveal">
+    <p>"Talk is cheap. Show me the code."</p>
+    <cite>— Linus Torvalds</cite>
+  </blockquote>
+</section>
+
+<!-- ======== CONTACT GRID ======== -->
+<section class="container">
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <p class="mono-label">// direct.channels</p>
+      <h2 style="margin:.5rem 0 1.5rem;">Reach out.</h2>
+      <p style="margin-bottom:2rem;">
+        I respond to most emails within 24 hours. If you have an embedded /
+        firmware / hardware project — or a research idea at the
+        <span class="accent">edge-AI</span> intersection — I'd love to hear about it.
+      </p>
+
+      <ul class="contact-list">
+        <li>
+          <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <div class="label">Email</div>
+            <a href="mailto:agrawaldikshant3001@gmail.com">agrawaldikshant3001@gmail.com</a>
+          </div>
+        </li>
+        <li>
+          <div class="icon"><i class="fa-brands fa-linkedin-in"></i></div>
+          <div>
+            <div class="label">LinkedIn</div>
+            <a href="https://www.linkedin.com/in/agrawaldikshant/" target="_blank" rel="noopener">/in/agrawaldikshant</a>
+          </div>
+        </li>
+        <li>
+          <div class="icon"><i class="fa-brands fa-github"></i></div>
+          <div>
+            <div class="label">GitHub</div>
+            <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener">@dikshant-agrawal</a>
+          </div>
+        </li>
+        <li>
+          <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <div class="label">Based in</div>
+            <span><a href="https://maps.app.goo.gl/JmTvUdmPJYZejgRE8" target="_blank" rel="noopener">Darmstadt, Germany</a></span>
+          </div>
+        </li>
+        <li>
+          <div class="icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <div class="label">Phone</div>
+            <a href="tel:+4915510862798">+49 15510 862798</a>
+            <a href="tel:+919752010926">, +91 97520 10926</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="schem-rule"><span class="mid">+V · STATUS · GND</span></div>
+
+      <div class="stat-row">
+        <div class="stat-tile"><span class="val">&lt;24h</span><span class="key">reply.time</span></div>
+        <div class="stat-tile"><span class="val">✓</span><span class="key">open.to.work</span></div>
+        <div class="stat-tile"><span class="val">CET</span><span class="key">time.zone</span></div>
+      </div>
+    </div>
+
+    <form class="contact-form reveal" id="contact-form">
+      <p class="mono-label" style="color:var(--neon); margin-bottom:1rem;">// new_message.init()</p>
+
+      <label for="name">Your name</label>
+      <input id="name" name="name" type="text" placeholder="Ada Lovelace" required />
+
+      <label for="email">Your email</label>
+      <input id="email" name="email" type="email" placeholder="ada@analytical.engine" required />
+
+      <label for="subject">Subject</label>
+      <input id="subject" name="subject" type="text" placeholder="Let's build something" />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Tell me about your project, the tech stack, timeline..." required></textarea>
+
+      <button type="submit" class="btn primary">
+        <i class="fa-solid fa-paper-plane"></i> transmit
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ======== HEX TICKER ======== -->
+<section class="container">
+  <div class="hex-ticker">
+    <span class="track">
+      AT+CONN → ESTABLISHED  ::  RX → waiting...  ::  TX → standby  ::  KEEPALIVE every 30s  ::  TLS 1.3 · ECDHE  ::  CERT → VALID  ::  HOPS: 3  ::  LATENCY: 24 ms  ::  0xDEADBEEF · 0xCAFEBABE  ::
+      AT+CONN → ESTABLISHED  ::  RX → waiting...  ::  TX → standby  ::  KEEPALIVE every 30s  ::  TLS 1.3 · ECDHE  ::  CERT → VALID  ::  HOPS: 3  ::  LATENCY: 24 ms  ::  0xDEADBEEF · 0xCAFEBABE  ::
+    </span>
+  </div>
+</section>
+
+<!-- ======== QUOTE ======== -->
+<section class="container">
+  <blockquote class="quote reveal">
+    <p>"That's one small step for [a] man, one giant leap for mankind."</p>
+    <cite>— Neil Armstrong · via on-board embedded radio, 1969</cite>
+  </blockquote>
+</section>
+
+<footer>
+  <p>&copy; <span id="yr"></span> Dikshant Agrawal · compiled with <span class="accent">GCC 13.2</span> · Darmstadt, DE</p>
+  <div class="footer-row">
+    <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> github</a>
+    <a href="https://www.linkedin.com/in/agrawaldikshant/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> linkedin</a>
+    <a href="mailto:agrawaldikshant3001@gmail.com"><i class="fa-solid fa-envelope"></i> email</a>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="assets/script.js"></script>
+</body>
+</html>
