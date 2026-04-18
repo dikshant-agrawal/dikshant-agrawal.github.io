@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dikshant Agrawal — Embedded Systems Engineer</title>
+  <meta name="description" content="Portfolio of Dikshant Agrawal — Embedded Systems Engineer exploring AI, functional safety, and real-time processing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23070709'/%3E%3Cpath d='M8 10 h10 a6 6 0 0 1 0 12 h-10 z M10 14 h6 a2 2 0 0 1 0 4 h-6 z' fill='%23ff003c'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<canvas id="circuit-bg"></canvas>
+
+<!-- ======== NAVBAR ======== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="dot"></span> dikshant.dev
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links">
+      <li><a href="index.html">home</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="experience.html">experience</a></li>
+      <li><a href="contact.html">contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ======== HERO ======== -->
+<header class="hero container">
+  <div class="hero-grid">
+    <div>
+      <p class="hero-pre">// initializing system.boot</p>
+      <h1>
+        Hi, I'm <span class="accent">Dikshant</span>.<br/>
+        <span class="gradient">Embedded Systems Engineer.</span>
+      </h1>
+      <p class="hero-sub">
+        I design firmware and hardware at the edge — where silicon meets intelligence.
+        Currently pursuing an M.Sc. in Embedded Systems &amp; Microelectronics at
+        <strong>Hochschule Darmstadt</strong>, Germany.
+      </p>
+
+      <div class="terminal">
+        <div class="terminal-bar"><span></span><span></span><span></span></div>
+        <div id="typewriter"></div>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn primary" href="projects.html"><i class="fa-solid fa-microchip"></i> view projects</a>
+        <a class="btn" href="Dikshant_Agrawal_Biographie.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> download CV</a>
+      </div>
+
+      <div class="social-strip">
+        <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/agrawaldikshant/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:agrawaldikshant3001@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <div class="chip-wrap" aria-hidden="true">
+      <div class="chip">
+        <div class="chip-top"></div>
+        <div class="chip-bot"></div>
+        <div class="chip-dot"></div>
+        <div class="chip-label">
+          <span class="big">DA-01</span>
+          EMBEDDED<br/>CORE v2.6
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ======== QUOTE ======== -->
+<section class="container" style="padding-top:2rem;">
+  <blockquote class="quote reveal">
+    <p>"There is plenty of room at the bottom."</p>
+    <cite>— Richard P. Feynman, 1959</cite>
+  </blockquote>
+</section>
+
+<!-- ======== ABOUT ======== -->
+<section class="container" id="about">
+  <div class="section-title reveal"><span class="mono-label">01 / about</span><h2>About Me</h2></div>
+  <div class="two-col">
+    <div class="reveal">
+      <p style="margin-bottom:1rem;">
+        I'm an <span class="accent">Embedded Systems Engineer</span> with a strong academic
+        foundation and hands-on experience spanning firmware, PCB design, and real-time systems.
+        I'm exploring the intersection of <strong>AI and embedded systems</strong> — focused on
+        functional safety, energy-efficient architectures, and deterministic processing.
+      </p>
+      <p style="margin-bottom:1rem;">
+        My path has taken me from designing buck converters for aerospace at Einfochips, to
+        building healthcare devices that saved lives at IIT Indore's DRISHTI CPS Foundation,
+        to developing firmware for student racing cars at Hochschule Darmstadt.
+      </p>
+      <p>
+        I believe the best engineering is simple, testable, and humble about its assumptions —
+        because in embedded, <em>"there's no silver bullet."</em>
+      </p>
+    </div>
+
+    <div class="info-card reveal">
+      <span class="mono-label">// quick.stats</span>
+      <h3 style="margin:.5rem 0 1.25rem;">At a glance</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:.9rem;">
+        <li><strong class="accent">4+</strong> years industry experience</li>
+        <li><strong class="accent">M.Sc.</strong> candidate — Hochschule Darmstadt</li>
+        <li><strong class="accent">32-bit ARM Cortex</strong> specialist</li>
+        <li><strong class="accent">C / C++ / Python</strong> for firmware &amp; tooling</li>
+        <li><strong class="accent">KiCAD + Fusion360</strong> for HW design</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======== QUOTE ======== -->
+<section class="container">
+  <blockquote class="quote reveal">
+    <p>"The first principle is that you must not fool yourself — and you are the easiest person to fool."</p>
+    <cite>— Richard Feynman</cite>
+  </blockquote>
+</section>
+
+<!-- ======== EDUCATION ======== -->
+<section class="container" id="education">
+  <div class="section-title reveal"><span class="mono-label">02 / education</span><h2>Education</h2></div>
+  <div class="projects-grid">
+    <div class="info-card reveal">
+      <span class="period">Sep 2025 — Present</span>
+      <h3>M.Sc. Electrical Engineering &amp; Information Technology</h3>
+      <p class="place">Hochschule Darmstadt University of Applied Sciences, Germany</p>
+      <p><strong>Major:</strong> Embedded Systems and Microelectronics</p>
+    </div>
+    <div class="info-card reveal">
+      <span class="period">Jul 2018 — Aug 2022</span>
+      <h3>B.Tech. in Mechatronics</h3>
+      <p class="place">Shri Vaishnav Institute of Technology and Science, SVVV, Indore (India)</p>
+      <p>Cross-disciplinary foundation in electronics, mechanics, and control systems.</p>
+    </div>
+    <div class="info-card reveal">
+      <span class="period">Apr 2017 — Apr 2018</span>
+      <h3>High School Diploma — Science &amp; Mathematics</h3>
+      <p class="place">St. Arnold's Higher Secondary School, CBSE, Indore (India)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======== SKILLS ======== -->
+<section class="container" id="skills">
+  <div class="section-title reveal"><span class="mono-label">03 / skills</span><h2>Tech Stack</h2></div>
+
+  <div class="skills-grid reveal">
+    <div class="skill-group">
+      <h4>// Electronics</h4>
+      <div class="tag-cloud">
+        <span class="tag">RTOS</span>
+        <span class="tag">Complex Device Drivers</span>
+        <span class="tag">Communication Protocols</span>
+        <span class="tag">32-bit ARM Cortex</span>
+        <span class="tag">IoT</span>
+        <span class="tag">Schematic Design</span>
+        <span class="tag">PCB Designing</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>// Languages</h4>
+      <div class="tag-cloud">
+        <span class="tag">C</span>
+        <span class="tag">C++</span>
+        <span class="tag">Python</span>
+        <span class="tag">MySQL</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>// Tools</h4>
+      <div class="tag-cloud">
+        <span class="tag">Git</span>
+        <span class="tag">GitLab</span>
+        <span class="tag">KiCAD</span>
+        <span class="tag">Fusion 360</span>
+        <span class="tag">AWS EC2</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>// Mechanical</h4>
+      <div class="tag-cloud">
+        <span class="tag">CAD</span>
+        <span class="tag">3D Printing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== QUOTE ======== -->
+<section class="container">
+  <blockquote class="quote reveal">
+    <p>"A good engineer is one who makes a design that works with as few original ideas as possible."</p>
+    <cite>— Freeman Dyson</cite>
+  </blockquote>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer>
+  <p>&copy; <span id="yr"></span> Dikshant Agrawal · built with <span class="accent">&lt;C/&gt;</span> · Darmstadt, DE</p>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="assets/script.js"></script>
+</body>
+</html>

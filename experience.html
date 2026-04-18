@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience — Dikshant Agrawal</title>
+  <meta name="description" content="Professional experience of Dikshant Agrawal in embedded systems and firmware development." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2304060f'/%3E%3Cpath d='M6 8 h4 v16 h-4 z M12 8 h16 v4 h-6 v4 h4 v4 h-4 v4 h6 v4 h-16 z' fill='%2300e5ff'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<canvas id="grid-floor"></canvas>
+<canvas id="circuit-bg"></canvas>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><svg class="logo-chip" viewBox="0 0 44 26" width="44" height="26" aria-hidden="true">
+        <line x1="0" y1="7" x2="9" y2="7" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="0" y1="13" x2="9" y2="13" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="0" y1="19" x2="9" y2="19" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="35" y1="7" x2="44" y2="7" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="35" y1="13" x2="44" y2="13" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="35" y1="19" x2="44" y2="19" stroke="currentColor" stroke-width="1.5"/>
+        <rect x="9" y="2" width="26" height="22" rx="2" fill="rgba(0,229,255,0.1)" stroke="currentColor" stroke-width="1.2"/>
+        <circle cx="12" cy="5" r="1.5" fill="currentColor" opacity="0.7"/>
+        <text x="22" y="17" text-anchor="middle" font-family="monospace" font-size="8" fill="currentColor" font-weight="bold">M4</text>
+      </svg>
+      dikshant.sys</a>
+    <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links">
+      <li><a href="index.html">home</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="experience.html">experience</a></li>
+      <li><a href="contact.html">contact</a></li>
+      <li><span id="live-clock" class="live-clock">DA/--:--:-- CET</span></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header container" style="padding: 9rem 0 2rem;">
+  <div class="side-hex left"></div>
+  <div class="side-hex right"></div>
+  <p class="mono-label">// git log --author="dikshant" --all</p>
+  <h1>Experience</h1>
+  <p>A timeline of the firmware, hardware, and research I've shipped across
+    healthcare, education, and academia.</p>
+  <div class="btn-row" style="justify-content:center; margin-top:2rem;">
+    <a class="btn primary" href="Dikshant_Agrawal_Biographie.pdf" target="_blank" rel="noopener">
+      <i class="fa-solid fa-file-arrow-down"></i> download full CV
+    </a>
+    <a class="btn" href="https://www.linkedin.com/in/agrawaldikshant/" target="_blank" rel="noopener">
+      <i class="fa-brands fa-linkedin"></i> view linkedin
+    </a>
+  </div>
+</header>
+
+<!-- ======== OSCILLOSCOPE STRIP ======== -->
+<section class="container" style="padding-top:0; padding-bottom:1.5rem;">
+  <div class="scope-strip reveal">
+    <div class="label">CH4 · CLK<br/><span class="muted">△ WAVE</span></div>
+    <svg data-wave="triangle" aria-hidden="true"></svg>
+    <div class="readout"><strong>SYNC</strong> ok<br/><span class="muted">0 frame err</span></div>
+  </div>
+  <div class="stat-row reveal">
+    <div class="stat-tile"><span class="val">4+</span><span class="key">years.industry</span></div>
+    <div class="stat-tile"><span class="val">4</span><span class="key">orgs.worked</span></div>
+    <div class="stat-tile"><span class="val">2</span><span class="key">countries</span></div>
+    <div class="stat-tile"><span class="val">∞</span><span class="key">coffee.cups</span></div>
+  </div>
+</section>
+
+<!-- ======== QUOTE ======== -->
+<section class="container" style="padding-top:1.5rem; padding-bottom:1rem;">
+  <div class="log-motivation reveal">
+    <div class="lm-header">LOG_MOTIVATION</div>
+    <div class="lm-body">
+      <span class="lm-quote">"I have not failed. I've just found 10,000 ways that won't work."</span>
+      <span class="lm-author">— Thomas A. Edison</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======== WORK TIMELINE ======== -->
+<section class="container">
+  <div class="section-title reveal"><span class="mono-label">// career.timeline</span><h2>Work Experience</h2></div>
+
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <span class="period"><i class="fa-regular fa-calendar"></i> Mar 2026 — Present</span>
+      <h3>Research Student — Firmware Development</h3>
+      <p class="place">Hochschule Darmstadt University of Applied Sciences, Germany</p>
+      <ul>
+        <li>Updating CDD and communication stack of a <strong class="accent">Zigbee</strong> radio-controlled remote for existing student cars.</li>
+        <li>Extending the state machine to maintain backward compatibility with legacy remotes and vehicles.</li>
+        <li><strong>Stack:</strong> C, AUTOSAR Complex Device Driver, Git, CAN analyzer.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item reveal">
+      <span class="period"><i class="fa-regular fa-calendar"></i> Jan 2023 — Aug 2025</span>
+      <h3>Embedded Systems Engineer</h3>
+      <p class="place">IITI DRISHTI CPS Foundation · Translational Research Park, IIT Indore, India</p>
+      <ul>
+        <li>Led firmware and hardware for diagnostic devices assisting healthcare professionals — the innovation <span class="accent">saved lives</span> and cut cost of care.</li>
+        <li>Defined standard driver libraries, power-management strategy, and clinical-field validation protocols.</li>
+        <li>Worked across the stack: schematic → PCB → firmware → field deployment.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item reveal">
+      <span class="period"><i class="fa-regular fa-calendar"></i> Sep 2022 — Jan 2023</span>
+      <h3>Research &amp; Development Engineer</h3>
+      <p class="place">Scientech Technologies Pvt. Ltd., India</p>
+      <ul>
+        <li>Developed hands-on training boards combining wireless communication with energy monitoring.</li>
+        <li>Co-authored lab manuals used by engineering colleges across India.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item reveal">
+      <span class="period"><i class="fa-regular fa-calendar"></i> Jan 2022 — Jul 2022</span>
+      <h3>Hardware Design — Bachelor's Internship</h3>
+      <p class="place">Einfochips Pvt. Ltd. (an Arrow Company), India</p>
+      <ul>
+        <li>Designed a DC-DC buck converter for an aerospace project — component selection, simulation, and review.</li>
+        <li>Exposure to rigorous aerospace design-review practices and EMI compliance.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======== HEX TICKER ======== -->
+<section class="container">
+  <div class="hex-ticker">
+    <span class="track">
+      commit 9a4f2c8 // Zigbee CDD extended state machine  ::  commit 1d3e7f2 // EKG fw v2.3 field-validated  ::  commit 8c9b0a1 // buck η raised to 92%  ::  commit f04a6e3 // LoRa lab released  ::  commit 2b5d8c9 // TFLite POC converges  ::  commit e7ff3a4 // CAN-GW 1 Mbps stable  ::
+      commit 9a4f2c8 // Zigbee CDD extended state machine  ::  commit 1d3e7f2 // EKG fw v2.3 field-validated  ::  commit 8c9b0a1 // buck η raised to 92%  ::  commit f04a6e3 // LoRa lab released  ::  commit 2b5d8c9 // TFLite POC converges  ::  commit e7ff3a4 // CAN-GW 1 Mbps stable  ::
+    </span>
+  </div>
+</section>
+
+<!-- ======== QUOTE ======== -->
+<section class="container" style="padding-top:1.5rem; padding-bottom:1rem;">
+  <div class="log-motivation reveal">
+    <div class="lm-header">LOG_MOTIVATION</div>
+    <div class="lm-body">
+      <span class="lm-quote">"When you can measure what you are speaking about, and express it in numbers, you know something about it."</span>
+      <span class="lm-author">— Lord Kelvin</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======== EDUCATION TIMELINE ======== -->
+<section class="container">
+  <div class="section-title reveal"><span class="mono-label">// education.log</span><h2>Education</h2></div>
+
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <span class="period"><i class="fa-regular fa-calendar"></i> Sep 2025 — Present</span>
+      <h3>M.Sc. Electrical Engineering &amp; Information Technology</h3>
+      <p class="place">Hochschule Darmstadt University of Applied Sciences, Germany</p>
+      <ul>
+        <li>Major: <span class="accent">Embedded Systems and Microelectronics</span></li>
+        <li>Focus: real-time OS, functional safety, edge-AI on microcontrollers.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item reveal">
+      <span class="period"><i class="fa-regular fa-calendar"></i> Jul 2018 — Aug 2022</span>
+      <h3>B.Tech. in Mechatronics</h3>
+      <p class="place">Shri Vaishnav Institute of Technology and Science (SVVV), Indore, India</p>
+      <ul>
+        <li>Cross-disciplinary curriculum: electronics + mechanics + control systems.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item reveal">
+      <span class="period"><i class="fa-regular fa-calendar"></i> Apr 2017 — Apr 2018</span>
+      <h3>High School — Science with Mathematics</h3>
+      <p class="place">St. Arnold's Higher Secondary School, CBSE, Indore, India</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======== QUOTE ======== -->
+<section class="container" style="padding-top:0.5rem; padding-bottom:1rem;">
+  <div class="log-motivation reveal">
+    <div class="lm-header">LOG_MOTIVATION</div>
+    <div class="lm-body">
+      <span class="lm-quote">"The noblest pleasure is the joy of understanding."</span>
+      <span class="lm-author">— Leonardo da Vinci</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======== SOFT SKILLS + CTA ======== -->
+<section class="container" style="padding-bottom: 2rem;">
+  <div class="section-title reveal"><span class="mono-label">// beyond.the.code</span><h2>Soft Skills</h2></div>
+  <div class="tag-cloud reveal" style="justify-content:center;">
+    <span class="tag">Scientific Writing</span>
+    <span class="tag">Presentation</span>
+    <span class="tag">Collaborative</span>
+    <span class="tag">Critical Analysis</span>
+    <span class="tag">Project Management</span>
+    <span class="tag">English / Hindi / German (A2)</span>
+  </div>
+</section>
+
+
+<footer>
+  <p>&copy; <span id="yr"></span> Dikshant Agrawal · compiled with <span class="accent">GCC 13.2</span> · Darmstadt, DE</p>
+  <div class="footer-row">
+    <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> github</a>
+    <a href="https://www.linkedin.com/in/agrawaldikshant/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> linkedin</a>
+    <a href="mailto:agrawaldikshant3001@gmail.com"><i class="fa-solid fa-envelope"></i> email</a>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="assets/script.js"></script>
+</body>
+</html>

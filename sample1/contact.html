@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Dikshant Agrawal</title>
+  <meta name="description" content="Work with Dikshant Agrawal — Embedded Systems Engineer based in Darmstadt, Germany." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23070709'/%3E%3Cpath d='M8 10 h10 a6 6 0 0 1 0 12 h-10 z M10 14 h6 a2 2 0 0 1 0 4 h-6 z' fill='%23ff003c'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<canvas id="circuit-bg"></canvas>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="dot"></span> dikshant.dev</a>
+    <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links">
+      <li><a href="index.html">home</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="experience.html">experience</a></li>
+      <li><a href="contact.html">contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header container">
+  <p class="mono-label">// ping --init handshake</p>
+  <h1>Work With Me</h1>
+  <p>Building something at the edge of embedded + AI? Looking for a firmware engineer,
+     research collaborator, or working-student? Let's connect.</p>
+</header>
+
+<!-- ======== QUOTE ======== -->
+<section class="container" style="padding:1rem 1.5rem 2rem;">
+  <blockquote class="quote reveal">
+    <p>"Talk is cheap. Show me the code."</p>
+    <cite>— Linus Torvalds</cite>
+  </blockquote>
+</section>
+
+<!-- ======== CONTACT ======== -->
+<section class="container">
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <p class="mono-label">// direct.channels</p>
+      <h2 style="margin:.5rem 0 1.5rem;">Reach out.</h2>
+      <p style="margin-bottom:2rem;">
+        I respond to most emails within 48 hours. If you have an embedded /
+        firmware / hardware project — or a research idea at the
+        <span class="accent">edge-AI</span> intersection — I'd love to hear about it.
+      </p>
+
+      <ul class="contact-list">
+        <li>
+          <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <div class="label">Email</div>
+            <a href="mailto:agrawaldikshant3001@gmail.com">agrawaldikshant3001@gmail.com</a>
+          </div>
+        </li>
+        <li>
+          <div class="icon"><i class="fa-brands fa-linkedin-in"></i></div>
+          <div>
+            <div class="label">LinkedIn</div>
+            <a href="https://www.linkedin.com/in/agrawaldikshant/" target="_blank" rel="noopener">/in/agrawaldikshant</a>
+          </div>
+        </li>
+        <li>
+          <div class="icon"><i class="fa-brands fa-github"></i></div>
+          <div>
+            <div class="label">GitHub</div>
+            <a href="https://github.com/dikshant-agrawal" target="_blank" rel="noopener">@dikshant-agrawal</a>
+          </div>
+        </li>
+        <li>
+          <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <div class="label">Based in</div>
+            <span>Darmstadt, Germany</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <div class="label">Phone</div>
+            <a href="tel:+4915510862798">+49 15510 862798</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <form class="contact-form reveal" id="contact-form">
+      <p class="mono-label" style="color:var(--neon); margin-bottom:1rem;">// new_message.init</p>
+
+      <label for="name">Your name</label>
+      <input id="name" name="name" type="text" placeholder="Ada Lovelace" required />
+
+      <label for="email">Your email</label>
+      <input id="email" name="email" type="email" placeholder="ada@analytical.engine" required />
+
+      <label for="subject">Subject</label>
+      <input id="subject" name="subject" type="text" placeholder="Let's build something" />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Tell me about your project, the tech stack, timeline..." required></textarea>
+
+      <button type="submit" class="btn primary">
+        <i class="fa-solid fa-paper-plane"></i> transmit
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ======== QUOTE ======== -->
+<section class="container">
+  <blockquote class="quote reveal">
+    <p>"That's one small step for [a] man, one giant leap for mankind."</p>
+    <cite>— Neil Armstrong (transmission via on-board embedded radio, 1969)</cite>
+  </blockquote>
+</section>
+
+<footer>
+  <p>&copy; <span id="yr"></span> Dikshant Agrawal · built with <span class="accent">&lt;C/&gt;</span> · Darmstadt, DE</p>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="assets/script.js"></script>
+</body>
+</html>
