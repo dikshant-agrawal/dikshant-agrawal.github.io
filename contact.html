@@ -132,6 +132,11 @@
     </div>
 
     <form class="contact-form reveal" id="contact-form">
+      <input type="hidden" name="access_key" value="f63aa796-c52d-46fa-a7a6-81baf95abe02" />
+      <input type="hidden" name="subject" value="New message from dikshant.sys portfolio" />
+      <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+      <input type="checkbox" name="botcheck" style="display:none;" />
+
       <p class="mono-label" style="color:var(--neon); margin-bottom:1rem;">// new_message.init()</p>
 
       <label for="name">Your name</label>
@@ -140,15 +145,17 @@
       <label for="email">Your email</label>
       <input id="email" name="email" type="email" placeholder="ada@analytical.engine" required />
 
-      <label for="subject">Subject</label>
-      <input id="subject" name="subject" type="text" placeholder="Let's build something" />
+      <label for="subject2">Subject</label>
+      <input id="subject2" name="subject2" type="text" placeholder="Let's build something" />
 
       <label for="message">Message</label>
       <textarea id="message" name="message" placeholder="Tell me about your project, the tech stack, timeline..." required></textarea>
 
-      <button type="submit" class="btn primary">
+      <button type="submit" class="btn primary" id="submit-btn">
         <i class="fa-solid fa-paper-plane"></i> transmit
       </button>
+
+      <div id="form-status" style="display:none; margin-top:1rem; font-family:var(--mono); font-size:.85rem; padding:.6rem 1rem; border-radius:6px;"></div>
     </form>
   </div>
 </section>
@@ -185,5 +192,52 @@
 
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 <script src="assets/script.js"></script>
+<script>
+(function contactForm() {
+  const form = document.getElementById('contact-form');
+  const btn  = document.getElementById('submit-btn');
+  const status = document.getElementById('form-status');
+  if (!form) return;
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // UI: loading state
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> transmitting...';
+    status.style.display = 'none';
+
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data
+      });
+      const json = await res.json();
+
+      if (json.success) {
+        status.style.background = 'rgba(0,255,160,0.08)';
+        status.style.border = '1px solid rgba(0,255,160,0.3)';
+        status.style.color = 'rgba(0,255,160,0.9)';
+        status.textContent = '// TX complete — message received. I\'ll respond within 24h.';
+        status.style.display = 'block';
+        form.reset();
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> transmitted';
+      } else {
+        throw new Error(json.message || 'Submission failed');
+      }
+    } catch (err) {
+      status.style.background = 'rgba(255,80,80,0.08)';
+      status.style.border = '1px solid rgba(255,80,80,0.3)';
+      status.style.color = 'rgba(255,100,100,0.9)';
+      status.textContent = '// TX error — please email me directly at agrawaldikshant3001@gmail.com';
+      status.style.display = 'block';
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> transmit';
+    }
+  });
+})();
+</script>
 </body>
 </html>

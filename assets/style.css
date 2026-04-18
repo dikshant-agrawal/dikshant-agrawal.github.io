@@ -503,7 +503,7 @@ section { padding: 5rem 0; position: relative; }
 
 /* ------- Oscilloscope waveform strip ------- */
 .scope-strip {
-  margin: 0.5rem 0;
+  margin: 2.5rem 0;
   padding: 1rem 1.25rem;
   background: var(--bg-card);
   border: 1px solid var(--border);
