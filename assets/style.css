@@ -215,11 +215,11 @@ section { padding: 5rem 0; position: relative; }
    so the terminal box never grows and the layout never shifts. */
 #typewriter { min-height: 11rem; }
 .terminal-bar { display: flex; gap: .4rem; margin-bottom: .6rem; align-items: center; }
-.terminal-bar span { width: 10px; height: 10px; border-radius: 50%; }
+.terminal-bar span:not(.title) { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 .terminal-bar span:nth-child(1) { background: #ff5f56; }
 .terminal-bar span:nth-child(2) { background: #ffbd2e; }
 .terminal-bar span:nth-child(3) { background: #27c93f; }
-.terminal-bar .title { margin-left: auto; font-size: .72rem; color: var(--fg-2); font-family: var(--mono); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 55%; }
+.terminal-bar .title { margin-left: auto; font-size: .72rem; color: var(--fg-2); font-family: var(--mono); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .terminal-line { color: var(--fg-1); }
 .terminal-line .prompt { color: var(--neon); }
 .terminal-line .cursor {
@@ -288,10 +288,12 @@ section { padding: 5rem 0; position: relative; }
   display: flex;
   flex-direction: column;
 }
-/* Serial panel expands to fill remaining height */
+/* Serial panel — fixed height, scrolls internally */
 .hw-serial {
-  flex: 1;
-  min-height: 180px;
+  flex: none;
+  height: 280px;
+  max-height: 280px;
+  overflow: hidden;
 }
 .sm-header {
   display: flex;
@@ -1043,8 +1045,9 @@ footer .accent { color: var(--neon); }
 }
 @keyframes serialIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
 .serial-ts { color: rgba(0,229,255,0.28); flex-shrink: 0; }
-.serial-msg { color: rgba(0,229,255,0.65); }
+.serial-msg { color: rgba(0,229,255,0.55); }
 .serial-msg.ok   { color: rgba(0,255,160,0.75); }
+.serial-msg.data { color: rgba(255,255,255,0.88); font-weight: 500; }
 .serial-msg.warn { color: rgba(255,195,0,0.75); }
 .serial-output::-webkit-scrollbar { display: none; }
 .serial-prompt {
@@ -1201,7 +1204,7 @@ footer .accent { color: var(--neon); }
   .hero-visual { min-height: 320px; }
   .right-col { width: 100%; align-self: auto; }
   .hw-monitor, .hw-serial { font-size: .68rem; }
-  .hw-serial { min-height: 160px; }
+  .hw-serial { height: 240px; max-height: 240px; }
   .nav-links {
     position: fixed;
     inset: 66px 0 auto 0;

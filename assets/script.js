@@ -164,10 +164,10 @@
   const lines = [
     { prompt: '$', text: 'whoami' },
     { text: 'dikshant.agrawal // embedded systems engineer', className: 'accent' },
-    { prompt: '$', text: 'uname -a' },
-    { text: 'Darmstadt/5.15 #embedded #MCU #edgeAI', className: 'accent' },
-    { prompt: '$', text: 'cat ./stack.cfg' },
-    { text: 'C · C++ · Python · RTOS · ARM Cortex-M', className: 'accent' },
+    { prompt: '$', text: 'cat ./experience.log' },
+    { text: '~4 yrs · IoT · wireless comms · research · AI', className: 'accent' },
+    { prompt: '$', text: 'cat ./status.cfg' },
+    { text: 'seeking internship · embedded firmware · device drivers', className: 'accent' },
     { prompt: '$', text: '' },
   ];
 
@@ -362,74 +362,107 @@
   });
 })();
 
-/* ---------- 10. SYS MONITOR live animations ---------- */
-(function sysMonitor() {
-  // WDT bar countdown → kicks every 4 s
-  const wdtBar = document.getElementById('sm-wdt-bar');
-  const wdtVal = document.getElementById('sm-wdt-val');
-  let wdt = 4.0;
-  setInterval(() => {
-    wdt -= 0.05;
-    if (wdt <= 0) wdt = 4.0;
-    if (wdtBar) wdtBar.style.width = ((wdt / 4) * 100).toFixed(1) + '%';
-    if (wdtVal) wdtVal.textContent = wdt.toFixed(1) + 's';
-  }, 50);
-
-  // CPU usage: gentle drift 55–88%
-  const cpuBar = document.getElementById('sm-cpu');
-  const cpuVal = document.getElementById('sm-cpu-val');
-  let cpu = 72;
-  setInterval(() => {
-    cpu = Math.max(55, Math.min(88, cpu + (Math.random() - 0.5) * 4));
-    const v = Math.round(cpu);
-    if (cpuBar) cpuBar.style.width = v + '%';
-    if (cpuVal) cpuVal.textContent = v + '%';
-  }, 900);
-
-  // ADC: voltage fluctuates slightly
-  const adcEl  = document.getElementById('sm-adc');
-  const adcVEl = document.getElementById('sm-adc-v');
-  setInterval(() => {
-    const raw = Math.floor(3100 + Math.random() * 150);
-    const v   = (raw / 4096 * 3.3).toFixed(2);
-    if (adcEl)  adcEl.textContent  = '0x' + raw.toString(16).toUpperCase().padStart(4,'0');
-    if (adcVEl) adcVEl.textContent = v + 'V';
-  }, 1200);
-
-  // Protocol churn
-  const i2cList  = ['ACK → 0x48', 'ACK → 0x68', 'TX → 0x1E', 'RX ← 0x48', 'NACK · retry'];
-  const canList  = ['TX: 0x2A1', 'RX: 0x18F', 'TX: 0x641', 'ERR: none',  'TX: 0x100'];
-  const uartList = ['TX ACTIVE', 'RX: "STATUS?"', 'TX: "OK\\r\\n"', 'IDLE'];
-  const gpioList = ['12 HIGH · 4 LOW', '11 HIGH · 5 LOW', '13 HIGH · 3 LOW'];
-  [['sm-i2c', i2cList, 2200], ['sm-can', canList, 1800],
-   ['sm-uart', uartList, 2800], ['sm-gpio', gpioList, 3500]].forEach(([id, list, ms]) => {
-    setInterval(() => {
-      const el = document.getElementById(id);
-      if (el) el.textContent = list[Math.floor(Math.random() * list.length)];
-    }, ms);
+/* ---------- 10. SKILL MONITOR bar fill animation ---------- */
+(function skillMonitor() {
+  // Animate bars filling in on load for visual impact
+  const fills = document.querySelectorAll('.hw-monitor .sm-bar-fill');
+  if (!fills.length) return;
+  fills.forEach(bar => {
+    const target = bar.style.width;
+    bar.style.width = '0%';
+    setTimeout(() => {
+      bar.style.transition = 'width 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
+      bar.style.width = target;
+    }, 400 + Math.random() * 300);
   });
+})();
 
-  // CPU temperature: random walk 42–58 °C
-  const tempEl = document.getElementById('sm-temp');
-  const tempV  = document.getElementById('sm-temp-v');
-  let temp = 47;
-  setInterval(() => {
-    temp = Math.max(42, Math.min(58, temp + (Math.random() - 0.48) * 2));
-    if (tempEl) tempEl.textContent = temp.toFixed(1) + ' \u00b0C';
-    if (tempV)  tempV.textContent  = temp > 54 ? 'warm' : 'nominal';
-  }, 2500);
+/* ---------- 11. Serial / UART skill log ---------- */
+(function serialMonitor() {
+  const output = document.getElementById('serial-output');
+  if (!output) return;
 
-  // IRQ counter: increments by 1–5 every 800 ms
-  const irqEl  = document.getElementById('sm-irq');
-  const irqCnt = document.getElementById('sm-irq-cnt');
-  let irqTotal = 0;
-  setInterval(() => {
-    const delta = Math.floor(Math.random() * 5) + 1;
-    irqTotal += delta;
-    const pending = Math.floor(Math.random() * 3);
-    if (irqEl)  irqEl.textContent  = 'pending: ' + pending;
-    if (irqCnt) irqCnt.textContent = irqTotal;
-  }, 800);
+  const MAX_LINES = 60;
+  let ticker = 0;
+
+  // ''     = blue  (system background)
+  // 'ok'   = green (verified)
+  // 'data' = white (recruiter-critical personal info)
+
+  const boot = [
+    { msg: 'LOG.VALIDATOR — boot',                          type: '' },
+    { msg: 'RTOS: scheduler — verified',                    type: 'ok' },
+    { msg: 'DRV: device driver stack — OK',                 type: 'ok' },
+    { msg: 'NAME: Dikshant Agrawal',                        type: 'data' },
+    { msg: 'LOC: Darmstadt, DE · Indian national',          type: 'data' },
+    { msg: 'EDU: M.Sc. Embedded Systems · h_da · 2025',    type: 'data' },
+    { msg: 'EXP: Firmware Dev · h_da · 2026–present',      type: 'data' },
+    { msg: 'EXP: Embedded Eng · IITI IIT · 2yr',           type: 'data' },
+    { msg: 'EXP: HW Intern · Einfochips (Arrow)',           type: 'data' },
+    { msg: 'MCU: ARM Cortex-M · PSoC · ESP · Nordic',      type: 'data' },
+    { msg: 'STACK: C/C++ · RTOS · Device Driver · IoT',    type: 'data' },
+    { msg: 'TOOLS: KiCAD · Git · Fusion360 · AWS EC2',     type: 'data' },
+    { msg: 'ENGLISH: professional · GERMAN: A2',            type: 'data' },
+    { msg: 'SEEKING: embedded firmware internship · DE',    type: 'data' },
+    { msg: 'LOG.VALIDATOR: all checks passed ✓',            type: 'ok' },
+  ];
+
+  const live = [
+    { msg: 'HEARTBEAT: nominal',                            type: '' },
+    { msg: 'NAME: Dikshant Agrawal',                        type: 'data' },
+    { msg: 'DRV: device driver stack — OK',                 type: 'ok' },
+    { msg: 'SEEKING: embedded firmware internship · DE',    type: 'data' },
+    { msg: 'RTOS: context switch < 2µs — nominal',         type: '' },
+    { msg: 'STACK: C/C++ · RTOS · Device Driver · IoT',    type: 'data' },
+    { msg: 'CAN/UART/I2C/SPI — regression PASS',            type: 'ok' },
+    { msg: 'EDU: M.Sc. Embedded Systems · h_da · 2025',    type: 'data' },
+    { msg: 'MCU: ARM Cortex-M · PSoC · ESP · Nordic',      type: 'data' },
+    { msg: 'PCB: KiCAD 4-layer — reviewed',                 type: '' },
+    { msg: 'ENGLISH: professional · GERMAN: A2',            type: 'data' },
+    { msg: 'EXP: Firmware Dev · h_da · 2026–present',      type: 'data' },
+    { msg: 'LOG.VALIDATOR: system nominal ✓',               type: 'ok' },
+  ];
+
+  function addLine(msg, type) {
+    while (output.children.length >= MAX_LINES) output.removeChild(output.firstChild);
+    const ts = String(ticker++).padStart(4, '0');
+    const div = document.createElement('div');
+    div.className = 'serial-line';
+    const tsSpan = document.createElement('span');
+    tsSpan.className = 'serial-ts';
+    tsSpan.textContent = '[' + ts + ']';
+    const msgSpan = document.createElement('span');
+    msgSpan.className = 'serial-msg' + (type ? ' ' + type : '');
+    msgSpan.textContent = msg;
+    div.appendChild(tsSpan);
+    div.appendChild(msgSpan);
+    output.appendChild(div);
+    output.scrollTop = output.scrollHeight;
+  }
+
+  // boot: ~900ms per line — slow from the start
+  let bi = 0;
+  function runBoot() {
+    if (bi >= boot.length) { startLive(); return; }
+    const e = boot[bi++];
+    addLine(e.msg, e.type);
+    setTimeout(runBoot, 850 + Math.random() * 150);
+  }
+
+  // live: 3.5s per line, 8s pause after each full cycle
+  let li = 0;
+  function startLive() {
+    function nextLive() {
+      const e = live[li % live.length];
+      li++;
+      addLine(e.msg, e.type);
+      const delay = (li % live.length === 0) ? 8000 : 3200 + Math.random() * 500;
+      setTimeout(nextLive, delay);
+    }
+    setTimeout(nextLive, 3000);
+  }
+
+  setTimeout(runBoot, 150);
 })();
 
 /* ---------- 12. Serial Monitor auto-scroll ---------- */
