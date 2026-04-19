@@ -523,19 +523,4 @@
   });
 })();
 
-/* ---------- 12. Contact form (mailto fallback) ---------- */
-(function contact() {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-    const name = encodeURIComponent(data.get('name') || '');
-    const email = encodeURIComponent(data.get('email') || '');
-    const subject = encodeURIComponent(data.get('subject') || 'Hello Dikshant');
-    const msg = encodeURIComponent(
-      `From: ${decodeURIComponent(name)} <${decodeURIComponent(email)}>\n\n` + (data.get('message') || '')
-    );
-    window.location.href = `mailto:agrawaldikshant3001@gmail.com?subject=${subject}&body=${msg}`;
-  });
-})();
+/* ---------- 12. Contact form handled inline in contact.html via Web3Forms ---------- */
