@@ -1044,7 +1044,7 @@ footer .accent { color: var(--neon); }
   animation: serialIn .25s ease forwards;
 }
 @keyframes serialIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
-.serial-ts { color: rgba(0,229,255,0.28); flex-shrink: 0; }
+.serial-ts { color: rgba(0,229,255,0.28); flex-shrink: 0; width: 3.8rem; display: inline-block; }
 .serial-msg { color: rgba(0,229,255,0.55); }
 .serial-msg.ok   { color: rgba(0,255,160,0.75); }
 .serial-msg.data { color: rgba(255,255,255,0.88); font-weight: 500; }
@@ -1058,7 +1058,9 @@ footer .accent { color: var(--neon); }
   font-size: .67rem;
   color: rgba(0,229,255,0.3);
   flex-shrink: 0;
+  justify-content: flex-start;
 }
+.serial-gt { color: rgba(0,229,255,0.4); flex-shrink: 0; }
 .serial-cursor {
   display: inline-block;
   width: 6px; height: .85em;

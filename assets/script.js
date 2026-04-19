@@ -385,43 +385,49 @@
   const MAX_LINES = 60;
   let ticker = 0;
 
-  // ''     = blue  (system background)
+  // ''     = blue  (system noise)
   // 'ok'   = green (verified)
-  // 'data' = white (recruiter-critical personal info)
+  // 'data' = white (recruiter-critical CV info)
 
-  const boot = [
-    { msg: 'LOG.VALIDATOR — boot',                          type: '' },
-    { msg: 'RTOS: scheduler — verified',                    type: 'ok' },
-    { msg: 'DRV: device driver stack — OK',                 type: 'ok' },
-    { msg: 'NAME: Dikshant Agrawal',                        type: 'data' },
-    { msg: 'LOC: Darmstadt, DE · Indian national',          type: 'data' },
-    { msg: 'EDU: M.Sc. Embedded Systems · h_da · 2025',    type: 'data' },
-    { msg: 'EXP: Firmware Dev · h_da · 2026–present',      type: 'data' },
-    { msg: 'EXP: Embedded Eng · IITI IIT · 2yr',           type: 'data' },
-    { msg: 'EXP: HW Intern · Einfochips (Arrow)',           type: 'data' },
-    { msg: 'MCU: ARM Cortex-M · PSoC · ESP · Nordic',      type: 'data' },
-    { msg: 'STACK: C/C++ · RTOS · Device Driver · IoT',    type: 'data' },
-    { msg: 'TOOLS: KiCAD · Git · Fusion360 · AWS EC2',     type: 'data' },
-    { msg: 'ENGLISH: professional · GERMAN: A2',            type: 'data' },
-    { msg: 'SEEKING: embedded firmware internship · DE',    type: 'data' },
-    { msg: 'LOG.VALIDATOR: all checks passed ✓',            type: 'ok' },
+  const noise = [
+    { msg: 'CAN1: TX 0x2A1 DLC=8 nominal',           type: '' },
+    { msg: 'I2C1: ACK @ 0x48 TMP102 OK',             type: '' },
+    { msg: 'RTOS: tick 1000Hz nominal',               type: '' },
+    { msg: 'WDT: kick counter reset',                 type: '' },
+    { msg: 'UART0: RX buffer clear',                  type: '' },
+    { msg: 'DMA: stream 0 transfer OK',               type: '' },
+    { msg: 'ADC1: VREF 3.30V nominal',                type: '' },
+    { msg: 'SPI2: CS deassert OK',                    type: '' },
+    { msg: 'GPIO: IRQ edge detected',                 type: '' },
+    { msg: 'CLK: PLL locked 168MHz',                  type: '' },
   ];
 
-  const live = [
-    { msg: 'HEARTBEAT: nominal',                            type: '' },
-    { msg: 'NAME: Dikshant Agrawal',                        type: 'data' },
-    { msg: 'DRV: device driver stack — OK',                 type: 'ok' },
-    { msg: 'SEEKING: embedded firmware internship · DE',    type: 'data' },
-    { msg: 'RTOS: context switch < 2µs — nominal',         type: '' },
-    { msg: 'STACK: C/C++ · RTOS · Device Driver · IoT',    type: 'data' },
-    { msg: 'CAN/UART/I2C/SPI — regression PASS',            type: 'ok' },
-    { msg: 'EDU: M.Sc. Embedded Systems · h_da · 2025',    type: 'data' },
-    { msg: 'MCU: ARM Cortex-M · PSoC · ESP · Nordic',      type: 'data' },
-    { msg: 'PCB: KiCAD 4-layer — reviewed',                 type: '' },
-    { msg: 'ENGLISH: professional · GERMAN: A2',            type: 'data' },
-    { msg: 'EXP: Firmware Dev · h_da · 2026–present',      type: 'data' },
-    { msg: 'LOG.VALIDATOR: system nominal ✓',               type: 'ok' },
+  const sequence = [
+    { msg: 'LOG.VALIDATOR — boot',                    type: '' },
+    { msg: 'RTOS: scheduler verified',                type: 'ok' },
+    { msg: 'DRV: device driver stack OK',             type: 'ok' },
+    null, // noise slot
+    { msg: 'NAME: Dikshant Agrawal',                  type: 'data' },
+    { msg: 'LOC: Darmstadt, DE · Indian national',    type: 'data' },
+    null,
+    { msg: 'EDU: M.Sc. Embedded Systems · h_da',      type: 'data' },
+    { msg: 'EXP: ~4 yrs · IoT · wireless · AI',       type: 'data' },
+    null,
+    { msg: 'EXP: Firmware Dev · h_da · 2026–now',     type: 'data' },
+    { msg: 'EXP: Embedded Eng · IITI IIT · 2yr',      type: 'data' },
+    null,
+    { msg: 'STACK: C/C++ · RTOS · Device Driver',     type: 'data' },
+    { msg: 'MCU: ARM · PSoC · ESP · Nordic',           type: 'data' },
+    null,
+    { msg: 'ENGLISH: professional · GERMAN: A2',       type: 'data' },
+    null,
+    { msg: 'SEEKING: firmware internship · DE',        type: 'data' },
+    { msg: 'LOG.VALIDATOR: all checks passed ✓',       type: 'ok' },
   ];
+
+  function randomNoise() {
+    return noise[Math.floor(Math.random() * noise.length)];
+  }
 
   function addLine(msg, type) {
     while (output.children.length >= MAX_LINES) output.removeChild(output.firstChild);
@@ -440,100 +446,48 @@
     output.scrollTop = output.scrollHeight;
   }
 
-  // boot: ~900ms per line — slow from the start
-  let bi = 0;
+  // boot: ~500ms per entry, noise slots get a random noise line
+  let si = 0;
   function runBoot() {
-    if (bi >= boot.length) { startLive(); return; }
-    const e = boot[bi++];
+    if (si >= sequence.length) { startLive(); return; }
+    const entry = sequence[si++];
+    const e = entry === null ? randomNoise() : entry;
     addLine(e.msg, e.type);
-    setTimeout(runBoot, 850 + Math.random() * 150);
+    setTimeout(runBoot, 480 + Math.random() * 120);
   }
 
-  // live: 3.5s per line, 8s pause after each full cycle
+  // live: rotates data + random noise, ~1.4s per line
+  const live = [
+    { msg: 'SEEKING: firmware internship · DE',       type: 'data' },
+    null,
+    { msg: 'STACK: C/C++ · RTOS · Device Driver',     type: 'data' },
+    null,
+    { msg: 'MCU: ARM · PSoC · ESP · Nordic',           type: 'data' },
+    null,
+    { msg: 'EDU: M.Sc. Embedded Systems · h_da',       type: 'data' },
+    null,
+    { msg: 'ENGLISH: professional · GERMAN: A2',        type: 'data' },
+    null,
+    { msg: 'EXP: ~4 yrs · IoT · wireless · AI',        type: 'data' },
+    null,
+    { msg: 'LOG.VALIDATOR: nominal ✓',                  type: 'ok' },
+    null,
+  ];
+
   let li = 0;
   function startLive() {
     function nextLive() {
-      const e = live[li % live.length];
+      const entry = live[li % live.length];
       li++;
+      const e = entry === null ? randomNoise() : entry;
       addLine(e.msg, e.type);
-      const delay = (li % live.length === 0) ? 8000 : 3200 + Math.random() * 500;
+      const delay = entry === null ? 600 + Math.random() * 200 : 1400 + Math.random() * 300;
       setTimeout(nextLive, delay);
     }
-    setTimeout(nextLive, 3000);
+    setTimeout(nextLive, 1000);
   }
 
   setTimeout(runBoot, 150);
-})();
-
-/* ---------- 12. Serial Monitor auto-scroll ---------- */
-(function serialMonitor() {
-  const output = document.getElementById('serial-output');
-  if (!output) return;
-
-  const boot = [
-    { ts: '0000', msg: 'SYS: boot sequence initiated',      type: '' },
-    { ts: '0012', msg: 'CLK: PLL locked @ 168 MHz',         type: 'ok' },
-    { ts: '0024', msg: 'GPIO: 140 pins configured',          type: '' },
-    { ts: '0041', msg: 'FLASH: read latency 5WS',            type: '' },
-    { ts: '0055', msg: 'DMA: streams 0–7 armed',             type: '' },
-    { ts: '0067', msg: 'I2C1: scanning bus…',                type: '' },
-    { ts: '0071', msg: 'I2C1: ACK @ 0x48  (TMP102)',         type: 'ok' },
-    { ts: '0089', msg: 'SPI2: init 8 MHz mode-0',            type: '' },
-    { ts: '0103', msg: 'CAN1: 1 Mbps  BTR=0x001C',          type: '' },
-    { ts: '0116', msg: 'CAN1: bus ACTIVE  REC=0 TEC=0',     type: 'ok' },
-    { ts: '0135', msg: 'ADC1: VREF = 3.300 V',               type: '' },
-    { ts: '0157', msg: 'RTOS: heap 192 kB  tasks: 8',        type: '' },
-    { ts: '0179', msg: 'RTOS: scheduler START',              type: 'ok' },
-    { ts: '0201', msg: 'WDT: IWDG armed  timeout 4.0 s',    type: '' },
-    { ts: '0235', msg: 'UART0: 115200 8N1  FIFO=32',         type: '' },
-    { ts: '0258', msg: 'Zigbee CC2538: channel 15  PAN=0x1A',type: 'ok' },
-    { ts: '0314', msg: 'EdgeAI: model 24 kB  int8 quant',   type: 'ok' },
-    { ts: '0390', msg: 'SYS: all systems nominal ✓',         type: 'ok' },
-  ];
-  const live = [
-    { msg: () => `I2C1: temp = ${(38+Math.random()*8).toFixed(1)} °C`,       type: '' },
-    { msg: () => `CAN1: TX 0x2A1  DLC=8  [${randHex(8)}]`,                  type: '' },
-    { msg: () => `ADC1: ch0 = ${(3100+Math.random()*200).toFixed(0)} mV`,    type: '' },
-    { msg: () => 'WDT: kick  counter reset',                                  type: '' },
-    { msg: () => 'RTOS: task_blink sleep 500 ms',                             type: '' },
-    { msg: () => `UART0: RX "${['STATUS?','PING','GET TEMP'][Math.floor(Math.random()*3)]}\\r\\n"`, type: '' },
-    { msg: () => `CAN1: RX 0x18F  [${randHex(6)}]`,                          type: '' },
-    { msg: () => `EdgeAI: infer 14 ms  label="${['silence','keyword','noise'][Math.floor(Math.random()*3)]}"`, type: 'ok' },
-    { msg: () => 'Zigbee: TX packet  RSSI -72 dBm',                           type: '' },
-  ];
-
-  function randHex(n) {
-    return Array.from({length:n}, ()=>Math.floor(Math.random()*256).toString(16).padStart(2,'0').toUpperCase()).join(' ');
-  }
-  function addLine(ts, msg, type) {
-    const row = document.createElement('div');
-    row.className = 'serial-line';
-    row.innerHTML = `<span class="serial-ts">[${ts}ms]</span><span class="serial-msg${type?' '+type:''}">${msg}</span>`;
-    output.appendChild(row);
-    const all = output.querySelectorAll('.serial-line');
-    if (all.length > 9) all[0].remove();
-    output.scrollTop = output.scrollHeight;
-  }
-
-  // Play boot sequence, then live messages
-  let idx = 0;
-  function playBoot() {
-    if (idx >= boot.length) { startLive(); return; }
-    const m = boot[idx++];
-    addLine(m.ts, m.msg, m.type);
-    setTimeout(playBoot, 240);
-  }
-  function startLive() {
-    let elapsed = 390;
-    function tick() {
-      elapsed += Math.floor(Math.random() * 300 + 100);
-      const m = live[Math.floor(Math.random() * live.length)];
-      addLine(elapsed.toString().padStart(4,'0'), m.msg(), m.type);
-      setTimeout(tick, 1400 + Math.random() * 900);
-    }
-    tick();
-  }
-  setTimeout(playBoot, 150);
 })();
 
 /* ---------- 11. Phone button: copy-to-clipboard on desktop, tel: on mobile ---------- */
