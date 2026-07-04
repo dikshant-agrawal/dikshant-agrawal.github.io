@@ -1226,7 +1226,9 @@ footer .accent { color: var(--neon); }
 @media (max-width: 520px) {
   .container { padding: 0 1rem; }
   .btn { font-size: .78rem; padding: .7rem 1rem; }
-  h1
+  h1 { font-size: clamp(2rem, 8vw, 2.6rem); }
+}
+
 /* ------- Case-study modal ------- */
 .cs-overlay {
   position: fixed; inset: 0; z-index: 1000;
