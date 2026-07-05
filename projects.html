@@ -115,7 +115,7 @@
     </div>
     <div class="projects-grid">
 
-      <!-- ══ 01 · STM32N6 Edge AI ══ M.Sc. · most complex -->
+      <!-- ══ 01 · STM32N6 Edge AI ══ most complex -->
       <article class="project-card reveal">
         <div class="project-img">
           <svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
@@ -161,7 +161,7 @@
         <div class="project-body">
           <div class="project-tags">
             <span class="tag">STM32N6</span><span class="tag">PyTorch</span><span class="tag">Edge AI</span><span
-              class="tag">C</span><span class="tag">M.Sc.</span>
+              class="tag">C</span><span class="tag">NPU</span>
           </div>
           <h3>Neural Network Deployment on STM32N6</h3>
           <p>Deployed a trained MLP neural network (Doom game bot) onto the STM32N6 edge AI
@@ -169,7 +169,7 @@
             quantization, and embedded deployment via STM32Cube AI Studio.</p>
           <div class="project-meta">
             <span><strong>mcu:</strong> STM32N6</span>
-            <span><strong>course:</strong> M.Sc. @ h_da</span>
+            <span><strong>role:</strong> team project</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/dikshant-agrawal/Doom_STM32N6" target="_blank" rel="noopener"><i
@@ -307,7 +307,7 @@
         </div>
       </article>
 
-      <!-- ══ 04 · Reaction Game ══ EOS Lab · PSoC5LP · C · device driver -->
+      <!-- ══ 04 · Reaction Game ══ Erika RTOS · PSoC5LP · C · device driver -->
       <article class="project-card reveal">
         <div class="project-img">
           <svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
@@ -315,7 +315,7 @@
             <text x="130" y="55" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="8"
               font-weight="700">PSoC5LP</text>
             <text x="130" y="67" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="7"
-              opacity=".6">Erika OSEK · EOS Lab</text>
+              opacity=".6">Erika OSEK · RTOS</text>
             <rect x="85" y="72" width="90" height="22" rx="2" fill="#02080e" stroke="#00e5ff" stroke-width="1.2" />
             <text x="130" y="82" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="7">REACT
               TIME:</text>
@@ -337,7 +337,7 @@
                 dur="3s" begin="1s" repeatCount="indefinite" />
             </circle>
             <text x="130" y="18" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="10"
-              font-weight="700">REACTION GAME · EOS</text>
+              font-weight="700">REACTION GAME · RTOS</text>
             <text x="130" y="142" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="7"
               opacity=".6">PWM drv · GPIO drv · Timer drv · C</text>
           </svg>
@@ -347,7 +347,7 @@
             <span class="tag">C</span><span class="tag">PSoC5LP</span><span class="tag">Erika RTOS</span><span
               class="tag">OSEK</span><span class="tag">Device Driver</span>
           </div>
-          <h3>Reaction Game — EOS Lab (PSoC5LP)</h3>
+          <h3>Reaction Game on Erika RTOS (PSoC5LP)</h3>
           <p>Device drivers written from scratch in embedded C on PSoC5LP: GPIO driver for
             button input, PWM driver for LED fade effects, and DWT unit timer driver for
             sub-millisecond reaction time capture. Running on Erika OSEK task scheduler.</p>
@@ -364,7 +364,7 @@
         </div>
       </article>
 
-      <!-- ══ 05 · Timing Analyzer ══ EOS Lab · PSoC5LP · C · device driver -->
+      <!-- ══ 05 · Timing Analyzer ══ PSoC5LP · C · measurement API -->
       <article class="project-card reveal">
         <div class="project-img">
           <svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
@@ -398,13 +398,13 @@
             <span class="tag">C</span><span class="tag">PSoC5LP</span><span class="tag">Device Driver</span><span
               class="tag">UART</span>
           </div>
-          <h3>Timing Analyzer — EOS Lab (PSoC5LP)</h3>
-          <p>Multi-channel timing analyzer built with custom device drivers in embedded C on
-            PSoC5LP — GPIO capture driver, hardware timer driver for &#x3BC;s resolution, and
-            UART driver for streaming annotated timing results to a PC terminal.</p>
+          <h3>Timing Analyzer API (PSoC5LP)</h3>
+          <p>Configurable timing-measurement API in embedded C on PSoC5LP — DWT
+            cycle-counter, SysTick and output-pin time bases, a start/stop/pause/resume
+            state machine, multiple analyzers in parallel, and single-shot UART reporting.</p>
           <div class="project-meta">
             <span><strong>mcu:</strong> PSoC5LP</span>
-            <span><strong>res:</strong> 1 &#xB5;s</span>
+            <span><strong>res:</strong> DWT cycles</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/dikshant-agrawal/timing-analyzer-api" target="_blank" rel="noopener"><i
@@ -425,7 +425,7 @@
             <circle cx="47" cy="23" r="3" fill="#ffbd2e" />
             <circle cx="59" cy="23" r="3" fill="#27c93f" />
             <text x="148" y="26" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="7"
-              opacity=".6">parser.cpp</text>
+              opacity=".6">parser.c</text>
             <text x="34" y="46" fill="rgba(0,229,255,0.5)" font-family="JetBrains Mono" font-size="8">&#x7B;</text>
             <text x="46" y="46" fill="rgba(255,200,100,0.85)" font-family="JetBrains Mono" font-size="8">"sensor"</text>
             <text x="108" y="46" fill="rgba(255,255,255,0.7)" font-family="JetBrains Mono" font-size="8">:</text>
@@ -455,8 +455,9 @@
               class="tag">OOP</span>
           </div>
           <h3>JSON Parser in C</h3>
-          <p>A hand-written recursive-descent JSON parser in C — based on JSMN libraries.
-            Handles nested objects, arrays, strings, numbers, and booleans.</p>
+          <p>A JSON command parser in C built on the jsmn tokenizer — parses drawing
+            commands on-device and feeds a TFT drawing engine through a message queue
+            on PSoC5LP.</p>
           <div class="project-meta">
             <span><strong>lang:</strong> C</span>
             <span><strong>method:</strong> recursive descent</span>
@@ -480,7 +481,7 @@
             <circle cx="52" cy="28" r="3" fill="#ffbd2e" />
             <circle cx="64" cy="28" r="3" fill="#27c93f" />
             <text x="145" y="31" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="7"
-              opacity=".6">arcadian.cpp</text>
+              opacity=".6">arcadian.c</text>
             <text x="38" y="52" fill="rgba(0,229,255,0.3)" font-family="JetBrains Mono" font-size="8">. . . . . . . . .
               . . . . . .</text>
             <text x="38" y="64" fill="rgba(0,229,255,0.3)" font-family="JetBrains Mono" font-size="8">. . . &#x2588;
@@ -506,10 +507,11 @@
               class="tag">STL</span>
           </div>
           <h3>Arcadian Lights</h3>
-          <p>Fancy LED light patterns in C using real time OS.</p>
+          <p>Knight-Rider-style LED fading and RGB glow effects in C on Erika RTOS —
+            table-driven and fully non-blocking alongside the main application.</p>
           <div class="project-meta">
             <span><strong>lang:</strong> C </span>
-            <span><strong>paradigm:</strong> OOP · STL</span>
+            <span><strong>engine:</strong> table-driven FX</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/dikshant-agrawal/erikaos-reaction-game" target="_blank" rel="noopener"><i
@@ -519,7 +521,7 @@
         </div>
       </article>
 
-      <!-- ══ 08 · Reversi ══ APT Lab · C++ -->
+      <!-- ══ 08 · Reversi ══ C++ · OOP -->
       <article class="project-card reveal">
         <div class="project-img">
           <svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
@@ -556,16 +558,15 @@
         </div>
         <div class="project-body">
           <div class="project-tags">
-            <span class="tag">C++</span><span class="tag">OOP</span><span class="tag">Game AI</span><span
-              class="tag">APT Lab</span>
+            <span class="tag">C++</span><span class="tag">OOP</span><span class="tag">Console UI</span>
           </div>
-          <h3>Reversi (Othello) — APT Lab</h3>
-          <p>Full Reversi implementation in C++ in terminal— board state machine,
-            legal move generation, disc-flipping logic, and an AI opponent. Clean OOP
-            separation of Board, Player, and GameController classes.</p>
+          <h3>Reversi (Othello) in C++</h3>
+          <p>Full Reversi implementation in C++ in the terminal — legal move generation
+            in all 8 directions, automatic disc flipping, and skip-turn handling. Clean
+            OOP separation of ReversiBoard and ReversiConsoleView.</p>
           <div class="project-meta">
             <span><strong>lang:</strong> C++ / OOP</span>
-            <span><strong>AI:</strong> minimax </span>
+            <span><strong>mode:</strong> 2-player</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/dikshant-agrawal/reversi-cpp" target="_blank" rel="noopener"><i
@@ -575,7 +576,7 @@
         </div>
       </article>
 
-      <!-- ══ 09 · Battleship ══ APT Lab · C++ -->
+      <!-- ══ 09 · Battleship ══ C++ · OOP -->
       <article class="project-card reveal">
         <div class="project-img">
           <svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
@@ -629,21 +630,21 @@
             <text x="130" y="125" fill="rgba(0,229,255,0.5)" text-anchor="middle" font-family="JetBrains Mono"
               font-size="7">TURN 7 · SHIPS: 3 / 3</text>
             <text x="130" y="142" fill="rgba(0,229,255,0.35)" text-anchor="middle" font-family="JetBrains Mono"
-              font-size="6">C++ · OOP · APT Lab</text>
+              font-size="6">C++ · OOP · TESTED</text>
           </svg>
         </div>
         <div class="project-body">
           <div class="project-tags">
-            <span class="tag">C++</span><span class="tag">OOP</span><span class="tag">STL</span><span class="tag">APT
-              Lab</span>
+            <span class="tag">C++</span><span class="tag">OOP</span><span class="tag">STL</span><span class="tag">Unit
+              Tests</span>
           </div>
-          <h3>Battleship — APT Lab</h3>
-          <p>Two-player terminal based Battleship game in C++ — ship placement, turn
-            management, hit/miss tracking, and win detection. Clean OOP design with
-            Grid, Ship, and GameSession classes and STL containers.</p>
+          <h3>Battleship in C++</h3>
+          <p>Object-oriented Battleship game model in C++ — ship placement validation,
+            hit/miss/sunk resolution, and a dual-grid console view. Built around
+            GridPosition, Ship, OwnGrid and OpponentGrid classes with a 3-part test suite.</p>
           <div class="project-meta">
             <span><strong>lang:</strong> C++ / OOP</span>
-            <span><strong>mode:</strong> 2-player local</span>
+            <span><strong>tests:</strong> 3-part suite</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/dikshant-agrawal/battleship-cpp" target="_blank" rel="noopener"><i
@@ -654,7 +655,7 @@
         </div>
       </article>
 
-      <!-- ══ 10 · SDHD PCB — Bandpass Amplifier ══ NEW · M.Sc. · KiCad -->
+      <!-- ══ 10 · Bandpass Amplifier PCB ══ KiCad · 4-layer -->
       <article class="project-card reveal">
         <div class="project-img">
           <svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
@@ -712,15 +713,15 @@
         <div class="project-body">
           <div class="project-tags">
             <span class="tag">KiCad</span><span class="tag">PCB</span><span class="tag">Analog</span><span
-              class="tag">OPA340</span><span class="tag">SDHD Lab</span>
+              class="tag">OPA340</span><span class="tag">Sallen-Key</span>
           </div>
           <h3>4th-Order Bandpass Amplifier PCB</h3>
           <p>Schematic capture and PCB layout of a 4th-order active bandpass amplifier
-            (two cascaded OPA340 stages, A=100 and A=3) for the SDHD lab at h_da.
-            Designed on a 4-layer Arduino UNO shield in KiCad — power derived from
+            (two cascaded OPA340 stages, A=100 and A=3). Designed on a 4-layer
+            Arduino UNO shield template in KiCad — power derived from
             FreeSoc2, THT components, with RGB status LEDs and push-button.</p>
           <div class="project-meta">
-            <span><strong>tool:</strong> KiCad · SS25</span>
+            <span><strong>tool:</strong> KiCad</span>
             <span><strong>layers:</strong> 4-layer THT</span>
           </div>
           <div class="project-links">
@@ -852,7 +853,7 @@
               <circle cx="80" cy="105" r="2" />
             </g>
             <text x="130" y="30" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="10"
-              font-weight="700">WIRELESS + ENERGY LAB</text>
+              font-weight="700">WIRELESS + ENERGY KIT</text>
           </svg>
         </div>
         <div class="project-body">
@@ -991,12 +992,12 @@
       <span class="track">
         /proj/stm32n6 → EDGE AI: DEPLOYED :: /proj/fpga → NIOS II: RUNNING :: /proj/xbee → DRIVER: OK :: /proj/reaction
         → RTOS: 12ms :: /proj/timing → &#x0394;t: 4.2&#xB5;s :: /proj/json → TOKENS: OK :: /proj/arcadian → SCORE: 04820
-        :: /proj/reversi → DISC: FLIPPED :: /proj/battleship → HIT! :: /proj/sdhd-pcb → DRC: PASS :: /proj/ekg-monitor →
+        :: /proj/reversi → DISC: FLIPPED :: /proj/battleship → HIT! :: /proj/bandpass → DRC: PASS :: /proj/ekg-monitor →
         DEPLOYED :: /proj/carrycot → SENSORS: LIVE :: /proj/lora-kit → 50+ COLLEGES :: /proj/weighing → MQTT: ONLINE ::
         /proj/buck → &#x3B7;: 92.4% ::
         /proj/stm32n6 → EDGE AI: DEPLOYED :: /proj/fpga → NIOS II: RUNNING :: /proj/xbee → DRIVER: OK :: /proj/reaction
         → RTOS: 12ms :: /proj/timing → &#x0394;t: 4.2&#xB5;s :: /proj/json → TOKENS: OK :: /proj/arcadian → SCORE: 04820
-        :: /proj/reversi → DISC: FLIPPED :: /proj/battleship → HIT! :: /proj/sdhd-pcb → DRC: PASS :: /proj/ekg-monitor →
+        :: /proj/reversi → DISC: FLIPPED :: /proj/battleship → HIT! :: /proj/bandpass → DRC: PASS :: /proj/ekg-monitor →
         DEPLOYED :: /proj/carrycot → SENSORS: LIVE :: /proj/lora-kit → 50+ COLLEGES :: /proj/weighing → MQTT: ONLINE ::
         /proj/buck → &#x3B7;: 92.4% ::
       </span>

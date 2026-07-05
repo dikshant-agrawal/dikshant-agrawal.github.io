@@ -42,81 +42,81 @@
     },
     reaction: {
       title: 'Reaction Game on Erika RTOS',
-      meta: 'RTOS project · Erika (OSEK) · C/C++ · PWM · hardware timers · UART',
+      meta: 'Erika RTOS (OSEK) · embedded C · PWM · hardware timers · UART',
       overview: 'A reaction-speed game on a bare-metal target running the Erika (OSEK) RTOS: LEDs fire with PWM fade effects, the player hits a button, and reaction time is captured to the millisecond.',
       goals: ['Exercise OSEK task/event/alarm scheduling on real hardware', 'Capture reaction times with ±1 ms accuracy'],
       approach: [
         'Erika task set: periodic LED-driver and debounce tasks plus an event-triggered measurement task',
         'Hardware-timer PWM fade for smooth LED brightness ramps',
         'High-resolution capture via timer overflow interrupt',
-        'UART logging for PC-side analysis; clean separation of HAL, game FSM, and display logic'
+        'Score and average-reaction-time tracking on 7-segment displays; clean separation of drivers, game FSM, and display logic in C'
       ],
-      results: 'Reaction measurements consistent within ±1 ms, validating the real-time accuracy of the scheduler — with clean C++ structure on bare metal.'
+      results: 'Reaction measurements consistent within ±1 ms, validating the real-time accuracy of the scheduler — with cleanly layered C on bare metal.'
     },
     timing: {
-      title: 'Timing Analyzer',
-      meta: 'Embedded tooling · C/C++ · hardware timers · GPIO ISR · ring buffer · UART',
-      overview: 'A software timing analyzer that captures digital signal transitions across 8 channels with microsecond resolution — a lightweight, no-oscilloscope debugging workflow for protocol bring-up.',
-      goals: ['1 µs-resolution visibility into signal timing relationships (SPI CS, data lines, IRQs)', 'Human-readable output on any PC terminal'],
+      title: 'Timing Analyzer API',
+      meta: 'Embedded C · PSoC 5LP (Cortex-M3) · DWT · SysTick · UART',
+      overview: 'A configurable timing-measurement API for bare-metal firmware: measure execution time of code sections using the DWT cycle counter, SysTick, or GPIO pin toggling for oscilloscope verification — a lightweight profiling workflow for resource-constrained targets.',
+      goals: ['Cycle-accurate visibility into firmware execution time without an oscilloscope', 'Multiple simultaneous measurements with zero interference between them'],
       approach: [
-        '1 MHz hardware timer tick; per-channel GPIO interrupts record (channel, timestamp, level) into a ring buffer',
-        'ChannelRecorder / TimingView classes separate capture from formatting',
-        'Post-capture analysis: pulse widths, periods, delta-t between any two channels',
-        'Configurable edge trigger; annotated ASCII waveform output over UART at 115200 baud'
+        'Selectable time bases: DWT cycle counter, SysTick, output-pin toggle — and combinations',
+        'Start / Stop / Pause / Resume measurement state machine per analyzer',
+        'Multiple analyzers running in parallel, built with object-oriented C (structs + function pointers)',
+        'UART reporting assembled first, then sent in a single shot so transmission never distorts the measurement'
       ],
-      results: 'Measured SPI clock/MOSI/CS timing with sub-2 µs jitter — a practical debugging tool for resource-constrained targets.'
+      results: 'Verified against oscilloscope pin-toggle measurements; provides cycle-accurate profiling of firmware sections on PSoC 5LP.'
     },
     json: {
-      title: 'JSON Parser in C++',
-      meta: 'C++ project · lexer + recursive descent · std::variant · unit tests · zero dependencies',
-      overview: 'A fully hand-written JSON parser in modern C++: tokeniser, recursive-descent parser building a typed AST, and a typed accessor API — no external libraries.',
-      goals: ['Implement the full JSON spec by hand', 'Design a clean, type-safe access API'],
+      title: 'JSON Parser + TFT Drawer in C',
+      meta: 'Embedded C · jsmn tokenizer · PSoC 5LP · Erika RTOS · UART · TFT',
+      overview: 'An on-device JSON processing pipeline in C: drawing commands arrive over UART, are tokenized with jsmn and parsed by a custom layer, then rendered on a TFT display — receive, parse, validate and draw on a resource-constrained microcontroller.',
+      goals: ['Parse JSON reliably within tight flash/RAM budgets', 'Decouple message reception from rendering so neither blocks the other'],
       approach: [
-        'Character-level lexer producing a complete token stream',
-        'parse_value() dispatching to object / array / primitive parsers via lookahead',
-        'AST hierarchy (JsonObject, JsonArray, JsonString, JsonNumber, JsonBool, JsonNull)',
-        'get<T>() accessors using std::variant; errors report line/column; assert-based unit tests incl. escapes and Unicode'
+        'jsmn-based tokenization with a custom parser layer for the drawing-command schema',
+        'Message-queue pipeline between UART reception and the drawing engine',
+        'TFT driver and drawing engine rendering the parsed commands',
+        'Layered architecture: application over board support over RTOS (Erika/OSEK tasks)'
       ],
-      results: 'Handles all test vectors including 10+-level nesting and malformed-input edge cases — parsing theory and API design directly transferable to protocol decoders in firmware.'
+      results: 'A working UART-to-display pipeline: JSON sent from a PC terminal is parsed and drawn on the TFT in real time — protocol handling directly applicable to firmware message decoders.'
     },
     arcadian: {
-      title: 'Arcadian — C++ Arcade Game',
-      meta: 'C++ project · OOP · STL · chrono · ANSI terminal rendering',
-      overview: 'A playable terminal arcade game in modern C++ with a real-time game loop, sprite management, collision detection, and persistent scoring.',
-      goals: ['Demonstrate inheritance, polymorphism, and STL in a real-time context', 'Keep architecture extensible for new entity types'],
+      title: 'Arcadian Light Effects',
+      meta: 'Embedded C · Erika RTOS (OSEK) · PWM · PSoC 5LP',
+      overview: 'A non-blocking LED light-effect engine in C running alongside the reaction game on Erika RTOS: Knight-Rider-style fading sweeps and an RGB glow engine, all driven from configurable tables.',
+      goals: ['Smooth LED animations that never interfere with real-time game timing', 'Effects fully configurable without touching the engine code'],
       approach: [
-        'Fixed-timestep game loop with frame-rate-independent physics (chrono)',
-        'Entity base class; Player / Enemy / Projectile with virtual update()/draw()',
-        'AABB collision detection over STL containers',
-        'ANSI-escape terminal renderer; high-score persistence via file I/O'
+        'Knight-Rider LED fade sweep using PWM brightness ramps',
+        'RGB glow engine driven by configurable effect tables',
+        'Fully non-blocking design scheduled as RTOS tasks — no busy waiting',
+        'Runs concurrently with the reaction game without affecting its ±1 ms timing'
       ],
-      results: 'Adding new enemy types became trivial thanks to the class design — a working showcase of software architecture paying off.'
+      results: 'Smooth, table-driven light effects with zero impact on game timing — demonstrating cooperative real-time design on a shared scheduler.'
     },
     reversi: {
       title: 'Reversi (Othello) in C++',
-      meta: 'C++ project · OOP · game AI · ANSI terminal UI',
-      overview: 'A complete Reversi implementation with human-vs-human and human-vs-AI modes; the AI plays a greedy max-flips strategy, extensible to minimax.',
-      goals: ['Correct rules enforcement in all 8 directions', 'Clean separation of board logic, game control, and rendering'],
+      meta: 'C++ · OOP · console game · 2-player',
+      overview: 'A complete two-player Reversi implementation in C++ for the terminal: full rules enforcement with automatic disc flipping, skip-turn handling, and end-game detection.',
+      goals: ['Correct rules enforcement in all 8 directions', 'Clean separation of board logic and rendering'],
       approach: [
-        'Encapsulated Board class over an 8×8 std::array grid',
-        'Legal-move generation validating flip chains in every direction; atomic flip execution',
-        'GameController for turns, end-game detection, and scoring',
-        'AI evaluates all legal moves and maximises discs flipped; ANSI-colour board rendering'
+        'Encapsulated ReversiBoard class owning the 8×8 grid state',
+        'Legal-move generation validating flip chains in every direction; automatic flip execution',
+        'Turn loop with skip-turn handling when a player has no valid move, and game-over detection',
+        'ReversiConsoleView rendering the board cleanly in the terminal'
       ],
-      results: 'Fully playable game with correct rules and an AI framework designed for drop-in minimax replacement.'
+      results: 'Fully playable two-player game with correct rules — a modular design ready for an AI player to be added.'
     },
     battleship: {
       title: 'Battleship in C++',
-      meta: 'C++ project · OOP · turn-based engine · test suite',
-      overview: 'A two-player Battleship engine managing hidden grids, ship placement, shot resolution, and win detection — built with production-style OOP.',
-      goals: ['Model the full game domain with encapsulated classes', 'Handle every placement and shot edge case'],
+      meta: 'C++ · OOP · game model · 3-part test suite',
+      overview: 'A fully object-oriented Battleship game model in C++: grids, ships, shot resolution and sinking detection, verified by a three-part test suite and visualized in a dual-grid console view.',
+      goals: ['Model the full game domain with encapsulated, testable classes', 'Handle every placement and shot edge case'],
       approach: [
-        'Grid (10×10 per-cell state) and Ship (orientation, cells, hit count, sunk()) classes',
-        'Placement validation rejecting overlaps and out-of-bounds with clear errors',
-        'GameSession orchestrating turns and masked opponent-grid display',
-        'Hit/miss/sunk resolution and all-ships-sunk win detection with statistics'
+        'Immutable GridPosition type; Ship class computing occupied and blocked (8-neighborhood) areas',
+        'OwnGrid/OpponentGrid with placement validation via set intersections',
+        'Shot resolution with hit/miss/sunk detection via hit-set comparison',
+        'ConsoleView rendering both grids side by side; 3-part test suite covering the model'
       ],
-      results: 'Correctly handles adjacent placement, repeat shots, and last-ship edge cases — class design applicable 1:1 to embedded state machines.'
+      results: 'All model rules verified by the test suite, including blocked-area placement and sinking edge cases — class design applicable 1:1 to embedded state machines.'
     },
     bandpass: {
       title: '4th-Order Bandpass Amplifier PCB',
@@ -165,10 +165,10 @@
       approach: [
         'Multi-radio board design integrating LoRa, BLE, and Zigbee modules',
         'Energy-measurement firmware on dedicated metering ICs with UART output',
-        'Lab exercises and example code for university courses',
+        'Hands-on exercises and example code for university courses',
         'Bring-up, testing, and documentation through production handover'
       ],
-      results: 'Adopted by 50+ engineering colleges across India as standard lab equipment for wireless/IoT courses.'
+      results: 'Adopted by 50+ engineering colleges across India as standard teaching equipment for wireless/IoT courses.'
     },
     weighing: {
       title: 'IoT Smart Weighing Machine',
