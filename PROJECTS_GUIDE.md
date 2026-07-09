@@ -50,3 +50,24 @@ Commit + push to `main`; GitHub Pages redeploys automatically in ~1 minute:
 ```
 git add -A && git commit -m "update projects" && git push
 ```
+
+---
+
+# Other data-driven pages
+
+## Experience page — `assets/experience-data.js`
+
+- `WORK` — job timeline entries: `period`, `title`, `place`, `bullets` (array of strings, simple HTML like `<strong class="accent">` allowed), `visible`.
+- `EDUCATION` — same shape.
+- `SOFT_SKILLS` — plain list of tag strings.
+
+Order = array order; `visible: false` hides an entry.
+
+## Home page — `assets/home-data.js`
+
+- `STATS` — the four stat tiles (`val`, `key`).
+- `SKILLS_MONITOR` — the SKILL.MONITOR bars (`name`, `width` 0–100, `val` label).
+- `TYPEWRITER_LINES` — the hero terminal typing animation.
+- `SERIAL_SEQUENCE` / `SERIAL_NOISE` — the LOG.VALIDATOR panel messages (your quick CV facts — update `SEEKING:`, `EXP:` lines here as things change).
+
+All support the same rules: order = array order, `visible: false` to hide (stats/skills).

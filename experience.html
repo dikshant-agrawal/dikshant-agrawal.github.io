@@ -89,48 +89,8 @@
 <section class="container">
   <div class="section-title reveal"><span class="mono-label">// career.timeline</span><h2>Work Experience</h2></div>
 
-  <div class="timeline">
-    <div class="timeline-item reveal">
-      <span class="period"><i class="fa-regular fa-calendar"></i> Mar 2026 — Present</span>
-      <h3>Research Student — Firmware Development</h3>
-      <p class="place">Hochschule Darmstadt University of Applied Sciences, Germany</p>
-      <ul>
-        <li>Updating CDD and communication stack of a <strong class="accent">Zigbee</strong> radio-controlled remote for existing student cars.</li>
-        <li>Extending the state machine to maintain backward compatibility with legacy remotes and vehicles.</li>
-        <li><strong>Stack:</strong> C, AUTOSAR Complex Device Driver, Git, CAN analyzer.</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item reveal">
-      <span class="period"><i class="fa-regular fa-calendar"></i> Jan 2023 — Aug 2025</span>
-      <h3>Embedded Systems Engineer</h3>
-      <p class="place">IITI DRISHTI CPS Foundation · Translational Research Park, IIT Indore, India</p>
-      <ul>
-        <li>Led firmware and hardware for diagnostic devices assisting healthcare professionals — the innovation <span class="accent">saved lives</span> and cut cost of care.</li>
-        <li>Defined standard driver libraries, power-management strategy, and clinical-field validation protocols.</li>
-        <li>Worked across the stack: schematic → PCB → firmware → field deployment.</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item reveal">
-      <span class="period"><i class="fa-regular fa-calendar"></i> Sep 2022 — Jan 2023</span>
-      <h3>Research &amp; Development Engineer</h3>
-      <p class="place">Scientech Technologies Pvt. Ltd., India</p>
-      <ul>
-        <li>Developed hands-on training boards combining wireless communication with energy monitoring.</li>
-        <li>Co-authored training manuals used by engineering colleges across India.</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item reveal">
-      <span class="period"><i class="fa-regular fa-calendar"></i> Jan 2022 — Jul 2022</span>
-      <h3>Hardware Design — Bachelor's Internship</h3>
-      <p class="place">Einfochips Pvt. Ltd. (an Arrow Company), India</p>
-      <ul>
-        <li>Designed a DC-DC buck converter for an aerospace project — component selection, simulation, and review.</li>
-        <li>Exposure to rigorous aerospace design-review practices and EMI compliance.</li>
-      </ul>
-    </div>
+  <div class="timeline" id="work-timeline-js">
+    <!-- Rendered from assets/experience-data.js (WORK) -->
   </div>
 </section>
 
@@ -153,31 +113,8 @@
 <section class="container">
   <div class="section-title reveal"><span class="mono-label">// education.log</span><h2>Education</h2></div>
 
-  <div class="timeline">
-    <div class="timeline-item reveal">
-      <span class="period"><i class="fa-regular fa-calendar"></i> Sep 2025 — Present</span>
-      <h3>M.Sc. Electrical Engineering &amp; Information Technology</h3>
-      <p class="place">Hochschule Darmstadt University of Applied Sciences, Germany</p>
-      <ul>
-        <li>Major: <span class="accent">Embedded Systems and Microelectronics</span></li>
-        <li>Focus: real-time OS, functional safety, edge-AI on microcontrollers.</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item reveal">
-      <span class="period"><i class="fa-regular fa-calendar"></i> Jul 2018 — Aug 2022</span>
-      <h3>B.Tech. in Mechatronics</h3>
-      <p class="place">Shri Vaishnav Institute of Technology and Science (SVVV), Indore, India</p>
-      <ul>
-        <li>Cross-disciplinary curriculum: electronics + mechanics + control systems.</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item reveal">
-      <span class="period"><i class="fa-regular fa-calendar"></i> Apr 2017 — Apr 2018</span>
-      <h3>High School — Science with Mathematics</h3>
-      <p class="place">St. Arnold's Higher Secondary School, CBSE, Indore, India</p>
-    </div>
+  <div class="timeline" id="education-timeline-js">
+    <!-- Rendered from assets/experience-data.js (EDUCATION) -->
   </div>
 </section>
 
@@ -197,13 +134,8 @@
 <!-- ======== SOFT SKILLS + CTA ======== -->
 <section class="container" style="padding-bottom: 2rem;">
   <div class="section-title reveal"><span class="mono-label">// beyond.the.code</span><h2>Soft Skills</h2></div>
-  <div class="tag-cloud reveal" style="justify-content:center;">
-    <span class="tag">Scientific Writing</span>
-    <span class="tag">Presentation</span>
-    <span class="tag">Collaborative</span>
-    <span class="tag">Critical Analysis</span>
-    <span class="tag">Project Management</span>
-    <span class="tag">English / Hindi / German (A2)</span>
+  <div class="tag-cloud reveal" style="justify-content:center;" id="soft-skills-js">
+    <!-- Rendered from assets/experience-data.js (SOFT_SKILLS) -->
   </div>
 </section>
 
@@ -241,6 +173,8 @@
 </footer>
 
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="assets/experience-data.js"></script>
+<script src="assets/experience-render.js"></script>
 <script src="assets/script.js"></script>
 </body>
 </html>

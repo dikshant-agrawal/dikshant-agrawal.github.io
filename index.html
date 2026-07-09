@@ -96,54 +96,7 @@
             <span>// SKILL.MONITOR</span>
             <span class="sm-live"><span class="sm-live-dot"></span> LIVE</span>
           </div>
-          <div class="sm-row">
-            <span class="sm-dot sm-on"></span>
-            <span class="sm-name">C</span>
-            <div class="sm-bar-wrap"><div class="sm-bar-fill" style="width:92%"></div></div>
-            <span class="sm-val">core</span>
-          </div>
-          <div class="sm-row">
-            <span class="sm-dot sm-on"></span>
-            <span class="sm-name">C++</span>
-            <div class="sm-bar-wrap"><div class="sm-bar-fill" style="width:78%"></div></div>
-            <span class="sm-val">proficient</span>
-          </div>
-          <div class="sm-row">
-            <span class="sm-dot sm-on"></span>
-            <span class="sm-name">RTOS</span>
-            <div class="sm-bar-wrap"><div class="sm-bar-fill" style="width:85%"></div></div>
-            <span class="sm-val">proficient</span>
-          </div>
-          <div class="sm-row">
-            <span class="sm-dot sm-on"></span>
-            <span class="sm-name">ARM Cortex-M</span>
-            <div class="sm-bar-wrap"><div class="sm-bar-fill" style="width:88%"></div></div>
-            <span class="sm-val">core</span>
-          </div>
-          <div class="sm-row">
-            <span class="sm-dot sm-on"></span>
-            <span class="sm-name">CAN / UART</span>
-            <div class="sm-bar-wrap"><div class="sm-bar-fill" style="width:80%"></div></div>
-            <span class="sm-val">proficient</span>
-          </div>
-          <div class="sm-row">
-            <span class="sm-dot sm-on"></span>
-            <span class="sm-name">Python</span>
-            <div class="sm-bar-wrap"><div class="sm-bar-fill" style="width:65%"></div></div>
-            <span class="sm-val">scripting</span>
-          </div>
-          <div class="sm-row">
-            <span class="sm-dot sm-on"></span>
-            <span class="sm-name">Edge AI</span>
-            <div class="sm-bar-wrap"><div class="sm-bar-fill" style="width:55%"></div></div>
-            <span class="sm-val">growing</span>
-          </div>
-          <div class="sm-row">
-            <span class="sm-dot sm-on"></span>
-            <span class="sm-name">PCB Design</span>
-            <div class="sm-bar-wrap"><div class="sm-bar-fill" style="width:72%"></div></div>
-            <span class="sm-val">proficient</span>
-          </div>
+          <div id="skill-monitor-js"><!-- Rendered from assets/home-data.js (SKILLS_MONITOR) --></div>
         </div>
 
         <!-- SERIAL MONITOR panel -->
@@ -237,11 +190,8 @@
 <section class="container" style="padding-top:0; padding-bottom:1.5rem;">
 
   <!-- ======== STATS STRIP ======== -->
-  <div class="stat-row reveal">
-    <div class="stat-tile"><span class="val">4+</span><span class="key">years.industry</span></div>
-    <div class="stat-tile"><span class="val">15+</span><span class="key">mcu.platforms</span></div>
-    <div class="stat-tile"><span class="val">20+</span><span class="key">featured.projects</span></div>
-    <div class="stat-tile"><span class="val">M.Sc.</span><span class="key">current.degree(on-going)</span></div>
+  <div class="stat-row reveal" id="stat-row-js">
+    <!-- Rendered from assets/home-data.js (STATS) -->
   </div>
 
   <!--
@@ -388,6 +338,8 @@
 </footer>
 
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
-<script src="assets/script.js"></script>
+<script src="assets/home-data.js"></script>
+  <script src="assets/home-render.js"></script>
+  <script src="assets/script.js"></script>
 </body>
 </html>                                                                                                                        

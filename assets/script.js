@@ -161,7 +161,7 @@
   const target = document.getElementById('typewriter');
   if (!target) return;
 
-  const lines = [
+  const lines = (typeof TYPEWRITER_LINES !== 'undefined') ? TYPEWRITER_LINES : [
     { prompt: '$', text: 'whoami' },
     { text: 'dikshant.agrawal // embedded systems engineer', className: 'accent' },
     { prompt: '$', text: 'cat ./experience.log' },
@@ -389,7 +389,7 @@
   // 'ok'   = green (verified)
   // 'data' = white (recruiter-critical CV info)
 
-  const noise = [
+  const noise = (typeof SERIAL_NOISE !== 'undefined') ? SERIAL_NOISE : [
     { msg: 'CAN1: TX 0x2A1 DLC=8 nominal',           type: '' },
     { msg: 'I2C1: ACK @ 0x48 TMP102 OK',             type: '' },
     { msg: 'RTOS: tick 1000Hz nominal',               type: '' },
@@ -402,7 +402,7 @@
     { msg: 'CLK: PLL locked 168MHz',                  type: '' },
   ];
 
-  const sequence = [
+  const sequence = (typeof SERIAL_SEQUENCE !== 'undefined') ? SERIAL_SEQUENCE : [
     { msg: 'LOG.VALIDATOR — boot',                    type: '' },
     { msg: 'RTOS: scheduler verified',                type: 'ok' },
     { msg: 'DRV: device driver stack OK',             type: 'ok' },
