@@ -172,7 +172,7 @@ const PROJECTS = [
     description: "Drive-by-wire accelerator pedal on PSoC5LP: ADC pedal acquisition and engine-speed control in an AUTOSAR-style SWC architecture — components communicate only through a generated RTE, scheduled by Erika (OSEK) tasks, with PID analysis in MATLAB.",
     tags: ["C", "AUTOSAR RTE", "Erika RTOS", "Automotive"],
     meta: [{ label: "mcu", value: "PSoC5LP" }, { label: "arch", value: "SWC + RTE" }],
-    codeUrl: "https://github.com/dikshant-agrawal/egas-pedal-control",
+    codeUrl: "https://github.com/dikshant-agrawal/egas-pedal-control-",
     codeLabel: "Code",
     caseStudy: "egas",
     image: "",
