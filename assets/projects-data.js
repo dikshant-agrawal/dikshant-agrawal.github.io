@@ -74,7 +74,7 @@ const PROJECTS = [
     description: "Developed a Nios II soft-core processor on the Intel MAX 10 DECA board using Platform Designer. Implemented Verilog hardware modules for LED patterns and integrated custom peripherals with the soft-core CPU.",
     tags: ["FPGA", "Verilog", "Nios II"],
     meta: [{ label: "board", value: "MAX 10 DECA" }, { label: "lang", value: "Verilog / C" }],
-    codeUrl: "https://github.com/dikshant-agrawal",
+    codeUrl: "https://github.com/dikshant-agrawal/nios2-max10-experiments",
     codeLabel: "Code",
     caseStudy: "fpga",
     image: "",
@@ -125,7 +125,7 @@ const PROJECTS = [
     description: "Device driver development in embedded C for an XBee Zigbee radio module on PSoC5LP, extending the communication stack for Hochschule Darmstadt's student car remote. Added new state transitions while maintaining backward compatibility.",
     tags: ["C", "PSoC5LP", "Zigbee"],
     meta: [{ label: "mcu", value: "PSoC5LP" }, { label: "lang", value: "C · CI/CD" }],
-    codeUrl: "https://github.com/dikshant-agrawal",
+    codeUrl: "https://github.com/dikshant-agrawal/xbee-zigbee-driver",
     codeLabel: "Code",
     caseStudy: "zigbee",
     image: "",
@@ -164,6 +164,32 @@ const PROJECTS = [
             <text x="130" y="135" fill="#00e5ff" text-anchor="middle" font-family="JetBrains Mono" font-size="7"
               opacity=".7">Zigbee · CDD · Device Driver · C</text>
           </svg>`
+  },
+  {
+    id: "egas",
+    visible: true,
+    title: "E-Gas Pedal Control (Drive-by-Wire)",
+    description: "Drive-by-wire accelerator pedal on PSoC5LP: ADC pedal acquisition and engine-speed control in an AUTOSAR-style SWC architecture — components communicate only through a generated RTE, scheduled by Erika (OSEK) tasks, with PID analysis in MATLAB.",
+    tags: ["C", "AUTOSAR RTE", "Erika RTOS", "Automotive"],
+    meta: [{ label: "mcu", value: "PSoC5LP" }, { label: "arch", value: "SWC + RTE" }],
+    codeUrl: "https://github.com/dikshant-agrawal/egas-pedal-control",
+    codeLabel: "Code",
+    caseStudy: "egas",
+    image: "",
+    svg: `<svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg"><rect x="30" y="105" width="200" height="6" rx="3" fill="#0a1a2a" stroke="#00e5ff" stroke-width="1" opacity=".6"/><g transform="rotate(-28 70 108)"><rect x="55" y="60" width="30" height="50" rx="5" fill="#0a1a2a" stroke="#00e5ff" stroke-width="1.5"/><text x="70" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#00e5ff">GAS</text></g><path d="M110 85 h30 m8 0 h30 m8 0 h20" stroke="#00e5ff" stroke-width="1" stroke-dasharray="4 3" opacity=".7"/><rect x="140" y="75" width="22" height="20" rx="3" fill="#0a1a2a" stroke="#00e5ff" stroke-width="1"/><text x="151" y="88" text-anchor="middle" font-family="monospace" font-size="7" fill="#00e5ff">ADC</text><rect x="178" y="72" width="30" height="26" rx="3" fill="#0a1a2a" stroke="#00e5ff" stroke-width="1"/><text x="193" y="83" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00e5ff">RTE</text><text x="193" y="92" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00e5ff">SWC</text><text x="130" y="35" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity=".8">E-GAS · DRIVE-BY-WIRE</text><text x="130" y="130" text-anchor="middle" font-family="monospace" font-size="7" fill="#00e5ff" opacity=".5">PEDAL → ADC → RTE → ENGINE PWM</text></svg>`
+  },
+  {
+    id: "eclock",
+    visible: true,
+    title: "Electronic Clock — RTE Architecture",
+    description: "Real-time clock on PSoC5LP built the AUTOSAR way: swc_clock application component over a generated RTE signal layer, OSEK alarms as the time base, display rendering and button time-setting handled by dedicated tasks.",
+    tags: ["C", "AUTOSAR RTE", "Erika RTOS", "OSEK"],
+    meta: [{ label: "mcu", value: "PSoC5LP" }, { label: "timebase", value: "OSEK alarms" }],
+    codeUrl: "https://github.com/dikshant-agrawal/electronic-clock-rte",
+    codeLabel: "Code",
+    caseStudy: "eclock",
+    image: "",
+    svg: `<svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg"><rect x="55" y="50" width="150" height="50" rx="6" fill="#0a1a2a" stroke="#00e5ff" stroke-width="1.5"/><text x="130" y="84" text-anchor="middle" font-family="monospace" font-size="26" fill="#00e5ff" letter-spacing="2">12:58</text><text x="130" y="34" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity=".8">ELECTRONIC CLOCK · RTE</text><text x="130" y="122" text-anchor="middle" font-family="monospace" font-size="7" fill="#00e5ff" opacity=".5">OSEK ALARM 1Hz :: swc_clock :: tsk_hmi</text></svg>`
   },
   {
     id: "reaction",

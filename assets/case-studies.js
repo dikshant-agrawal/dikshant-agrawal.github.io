@@ -40,6 +40,32 @@
       ],
       results: 'All regression tests passed with zero backward-compatibility breaks — new features shipped to the existing fleet without hardware changes.'
     },
+    egas: {
+      title: 'E-Gas Pedal Control (Drive-by-Wire)',
+      meta: 'Embedded C · Erika RTOS (OSEK) · AUTOSAR-style RTE · PSoC 5LP · MATLAB',
+      overview: 'The classic automotive E-Gas concept implemented as a layered real-time system: pedal position sampled via ADC, processed by a software component (swc_egas), and translated into engine-speed control — with all components decoupled through a generated Runtime Environment.',
+      goals: ['Build a drive-by-wire pipeline with a clean AUTOSAR-style architecture', 'Keep application components hardware-independent via RTE signals'],
+      approach: [
+        'swc_egas software component: pedal ADC acquisition + engine speed command with brake interaction',
+        'Generated RTE signal layer — SWCs never touch hardware or each other directly',
+        'Erika (OSEK) task set: tsk_control, tsk_io, tsk_hmi plus ISRs and ring-buffered messaging',
+        'PID evaluation of the engine response in MATLAB against captured motor logs'
+      ],
+      results: 'Working pedal-to-engine control chain with verified task timing (documented RTE schedule analysis) and a fully decoupled component architecture.'
+    },
+    eclock: {
+      title: 'Electronic Clock — RTE Architecture',
+      meta: 'Embedded C · Erika RTOS (OSEK) · AUTOSAR-style RTE · PSoC 5LP',
+      overview: 'A real-time clock built with the same architecture discipline as automotive ECUs: application logic in a software component (swc_clock), hardware in a BSW driver, and a generated RTE in between — scheduled by OSEK alarms.',
+      goals: ['Accurate timekeeping from an OSEK alarm time base', 'Strict layering: application ↔ RTE ↔ board support'],
+      approach: [
+        'swc_clock application component owning the clock logic',
+        'Dedicated clock BSW driver for the time base',
+        'tsk_control / tsk_hmi tasks wiring buttons and display through RTE signals',
+        'Time-set interaction and display rendering decoupled from clock logic'
+      ],
+      results: 'A cleanly layered, running electronic clock demonstrating RTE-based composition on a small target — the same pattern that scales to production ECUs.'
+    },
     reaction: {
       title: 'Reaction Game on Erika RTOS',
       meta: 'Erika RTOS (OSEK) · embedded C · PWM · hardware timers · UART',
