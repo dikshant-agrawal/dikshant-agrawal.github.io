@@ -28,9 +28,9 @@
       results: 'Complete HW/SW system synthesised and deployed on the MAX 10 DECA board — demonstrating RTL design, Quartus tool flow, and soft-core co-design.'
     },
     zigbee: {
-      title: 'Zigbee Radio Stack for Student Racing Car',
+      title: 'Zigbee Radio Stack for Experimental Student Cars',
       meta: 'Firmware engineer · Mar 2026–present · Zigbee · CC2538 · AUTOSAR CDD · C · ARM',
-      overview: 'The student racing team’s remote control runs on a Zigbee link. The AUTOSAR CDD communication stack needed new control features — without breaking hardware already deployed in the fleet.',
+      overview: 'A fleet of advanced experimental student cars — capable of line following, obstacle avoidance and more — is driven over a Zigbee remote-control link. The AUTOSAR CDD communication stack needed new control features — without breaking hardware already deployed in the fleet.',
       goals: ['Extend the CDD layer for new remote-control features', 'Preserve full backward compatibility with deployed cars'],
       approach: [
         'XBee API-frame engine: frame generation, checksums, TX/RX services with ring-buffer decoupled reception',
