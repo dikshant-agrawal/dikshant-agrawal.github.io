@@ -33,12 +33,12 @@
       overview: 'The student racing team’s remote control runs on a Zigbee link. The AUTOSAR CDD communication stack needed new control features — without breaking hardware already deployed in the fleet.',
       goals: ['Extend the CDD layer for new remote-control features', 'Preserve full backward compatibility with deployed cars'],
       approach: [
-        'Extended the AUTOSAR CDD layer for the CC2538 Zigbee SoC',
-        'Redesigned the state machine to add transitions without altering legacy behaviour',
-        'Hardened the radio stack for reliability under race conditions',
-        'Validated against the existing regression test scenarios on the car platform'
+        'XBee API-frame engine: frame generation, checksums, TX/RX services with ring-buffer decoupled reception',
+        'Node discovery plus a name↔MAC registry for addressed unicast, broadcast, and send-to-all',
+        'Car domain layer: per-car state machines, pairing/selection, and configuration tables',
+        'State machine extended for new features while staying fully backward compatible with the deployed fleet'
       ],
-      results: 'All regression tests passed with zero backward-compatibility breaks — new features shipped to the existing fleet without hardware changes.'
+      results: 'New remote-control features shipped to existing cars with zero backward-compatibility breaks. Source is IP-protected — the repo hosts an architecture overview, code available on request.'
     },
     egas: {
       title: 'E-Gas Pedal Control (Drive-by-Wire)',
