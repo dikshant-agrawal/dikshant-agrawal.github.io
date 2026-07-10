@@ -4,8 +4,8 @@
 
 /* Stat tiles under the hero. Order = order here; visible: false hides one. */
 const STATS = [
-  { visible: true, val: "4+",    key: "years.industry" },
-  { visible: true, val: "15+",   key: "mcu.platforms" },
+  { visible: true, val: "3+",    key: "years.industry" },
+  { visible: true, val: "5+",    key: "mcu.platforms" },
   { visible: true, val: "20+",   key: "featured.projects" },
   { visible: true, val: "M.Sc.", key: "current.degree(on-going)" }
 ];
