@@ -66,15 +66,15 @@ const PROJECTS = [
   {
     id: "egas",
     visible: true,
-    title: "E-Gas Pedal Control (Drive-by-Wire)",
-    description: "Drive-by-wire accelerator pedal on PSoC5LP: ADC pedal acquisition and engine-speed control in an AUTOSAR-style SWC architecture — components communicate only through a generated RTE, scheduled by Erika (OSEK) tasks, with PID analysis in MATLAB.",
+    title: "E-Gas Electronic Throttle Control",
+    description: "Electronic throttle (E-Gas) on PSoC5LP: joystick-commanded engine speed — ADC acquisition and closed-loop control in an AUTOSAR-style SWC architecture — components communicate only through a generated RTE, scheduled by Erika (OSEK) tasks, with PID analysis in MATLAB.",
     tags: ["C", "AUTOSAR RTE", "Erika RTOS", "Automotive"],
     meta: [{ label: "mcu", value: "PSoC5LP" }, { label: "arch", value: "SWC + RTE" }],
-    codeUrl: "https://github.com/dikshant-agrawal/egas-pedal-control-",
+    codeUrl: "https://github.com/dikshant-agrawal/egas-pedal-control",
     codeLabel: "Code",
     caseStudy: "egas",
     image: "",
-    svg: `<svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg"><rect x="30" y="105" width="200" height="6" rx="3" fill="#0a1a2a" stroke="#00e5ff" stroke-width="1" opacity=".6"/><g transform="rotate(-28 70 108)"><rect x="55" y="60" width="30" height="50" rx="5" fill="#0a1a2a" stroke="#00e5ff" stroke-width="1.5"/><text x="70" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#00e5ff">GAS</text></g><path d="M110 85 h30 m8 0 h30 m8 0 h20" stroke="#00e5ff" stroke-width="1" stroke-dasharray="4 3" opacity=".7"/><rect x="140" y="75" width="22" height="20" rx="3" fill="#0a1a2a" stroke="#00e5ff" stroke-width="1"/><text x="151" y="88" text-anchor="middle" font-family="monospace" font-size="7" fill="#00e5ff">ADC</text><rect x="178" y="72" width="30" height="26" rx="3" fill="#0a1a2a" stroke="#00e5ff" stroke-width="1"/><text x="193" y="83" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00e5ff">RTE</text><text x="193" y="92" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00e5ff">SWC</text><text x="130" y="35" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity=".8">E-GAS · DRIVE-BY-WIRE</text><text x="130" y="130" text-anchor="middle" font-family="monospace" font-size="7" fill="#00e5ff" opacity=".5">PEDAL → ADC → RTE → ENGINE PWM</text></svg>`
+    svg: `<svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg"><rect x="30" y="105" width="200" height="6" rx="3" fill="#0a1a2a" stroke="#00e5ff" stroke-width="1" opacity=".6"/><g transform="rotate(-28 70 108)"><rect x="55" y="60" width="30" height="50" rx="5" fill="#0a1a2a" stroke="#00e5ff" stroke-width="1.5"/><text x="70" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#00e5ff">GAS</text></g><path d="M110 85 h30 m8 0 h30 m8 0 h20" stroke="#00e5ff" stroke-width="1" stroke-dasharray="4 3" opacity=".7"/><rect x="140" y="75" width="22" height="20" rx="3" fill="#0a1a2a" stroke="#00e5ff" stroke-width="1"/><text x="151" y="88" text-anchor="middle" font-family="monospace" font-size="7" fill="#00e5ff">ADC</text><rect x="178" y="72" width="30" height="26" rx="3" fill="#0a1a2a" stroke="#00e5ff" stroke-width="1"/><text x="193" y="83" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00e5ff">RTE</text><text x="193" y="92" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00e5ff">SWC</text><text x="130" y="35" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity=".8">E-GAS · THROTTLE CONTROL</text><text x="130" y="130" text-anchor="middle" font-family="monospace" font-size="7" fill="#00e5ff" opacity=".5">JOYSTICK → ADC → RTE → ENGINE PWM</text></svg>`
   },
   {
     id: "fpga",
