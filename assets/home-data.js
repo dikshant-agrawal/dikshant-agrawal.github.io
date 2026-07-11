@@ -71,3 +71,19 @@ const SERIAL_NOISE = [
   { msg: 'GPIO: IRQ edge detected',      type: '' },
   { msg: 'CLK: PLL locked 168MHz',       type: '' }
 ];
+
+/* Skills section groups (home page). icon = Font Awesome class. */
+const SKILL_GROUPS = [
+  { visible: true, icon: "fa-solid fa-microchip", title: "// Embedded",
+    tags: ["RTOS (Erika OSEK · FreeRTOS)", "Bare-metal", "AUTOSAR CDD / RTE", "Register-level drivers", "DMA & interrupts", "ARM Cortex-M (32-bit)", "IoT", "Hardware-in-the-loop"] },
+  { visible: true, icon: "fa-solid fa-compass-drafting", title: "// Hardware",
+    tags: ["KiCad", "OrCAD", "Schematic capture", "Multi-layer PCB layout", "Analog & digital design", "Board bring-up", "JTAG / SWD", "Logic analyzer & oscilloscope"] },
+  { visible: true, icon: "fa-solid fa-code", title: "// Languages",
+    tags: ["C", "C++", "Python", "SystemVerilog", "MATLAB", "MySQL"] },
+  { visible: true, icon: "fa-solid fa-tower-broadcast", title: "// Protocols",
+    tags: ["UART", "I2C", "SPI", "CAN", "USB 2.0", "BLE", "Zigbee", "LoRa", "MQTT"] },
+  { visible: true, icon: "fa-solid fa-brain", title: "// Edge AI",
+    tags: ["PyTorch", "TensorFlow Lite Micro", "int8 quantisation", "ONNX", "STM32Cube AI", "NPU deployment"] },
+  { visible: true, icon: "fa-solid fa-screwdriver-wrench", title: "// Tools & Workflow",
+    tags: ["Claude Code (AI-assisted dev)", "Git · GitLab CI/CD", "Unit testing", "PSoC Creator", "STM32Cube", "Quartus · Platform Designer", "Vivado", "Doxygen", "Fusion 360 · 3D printing", "AWS EC2"] }
+];

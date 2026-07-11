@@ -16,4 +16,12 @@
       '<span class="sm-val">' + r.val + '</span></div>'
     ).join('\n');
   }
+  const sg = document.getElementById('skills-grid-js');
+  if (sg && typeof SKILL_GROUPS !== 'undefined') {
+    sg.innerHTML = SKILL_GROUPS.filter(g => g.visible !== false).map(g =>
+      '<div class="skill-group reveal">' +
+      '<h4><span class="ico"><i class="' + g.icon + '"></i></span>' + g.title + '</h4>' +
+      '<div class="tag-cloud">' + g.tags.map(t => '<span class="tag">' + t + '</span>').join('') + '</div></div>'
+    ).join('\n');
+  }
 })();
