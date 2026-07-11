@@ -302,11 +302,11 @@
   if (!el) return;
   function tick() {
     const now = new Date();
-    const h = now.toLocaleTimeString('en-DE', { hour12: false, timeZone: 'Europe/Berlin' });
+    const h = now.toLocaleTimeString('en-DE', { hour12: false, hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Berlin' });
     el.textContent = `DA/${h} CET`;
   }
   tick();
-  setInterval(tick, 1000);
+  setInterval(tick, 30000);
 })();
 
 /* ---------- 6. Mobile nav toggle ---------- */
@@ -481,7 +481,7 @@
       li++;
       const e = entry === null ? randomNoise() : entry;
       addLine(e.msg, e.type);
-      const delay = entry === null ? 600 + Math.random() * 200 : 1400 + Math.random() * 300;
+      const delay = entry === null ? 2600 + Math.random() * 800 : 3800 + Math.random() * 900;
       setTimeout(nextLive, delay);
     }
     setTimeout(nextLive, 1000);
